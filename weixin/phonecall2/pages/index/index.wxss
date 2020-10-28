@@ -1,0 +1,24 @@
+/* wei xin style sheet 微信样式表  */
+.photo{
+    width: 80rpx;
+    height: 80rpx;
+}
+.photo2{
+    width: 200rpx;
+    height: 100rpx;
+}
+.row{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    align-items: center;
+    border-bottom: solid gray 1rpx;
+    height: 120rpx;
+    box-shadow: gray 0 10rpx 30rpx;
+}
+.left{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    align-items: center;
+}

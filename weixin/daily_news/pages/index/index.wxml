@@ -1,0 +1,43 @@
+<view class="search-bar">
+    <view class="text">搜索</view>
+    <view class="input-group">
+        <image src="/imgs/search.png"></image>
+        <input type="text" placeholder="输入搜索内容"></input>
+    </view>
+</view>
+
+<view class="items-bar">
+    <swiper display-multiple-items="5" current="{{currentItem}}" circular="true" previous-margin="10"	>
+       <swiper-item wx:for="{{items}}" wx:key="index">
+            <view class="{{currentItem==index?'bold':''}}" id="{{index}}" bindtap="selectItem">{{item.name}}</view> 
+       </swiper-item>
+    
+    </swiper>
+    <view class="plus">+</view>
+</view>
+
+<swiper  class="news-list" current="{{currentItem}}"  duration="1000" bindchange="slid" circular="true">
+    <swiper-item wx:for="{{items}}"  wx:key="index" item-id="{{index}}" >
+        <scroll-view scroll-y="true" class="scroll-news">
+            <view>
+                 <view class="news" wx:for="{{newsList}}" wx:key="index" bindtap="showNews" wx:for-item="item"
+                       id="{{item.url}}">
+                    <view class="title">{{item.title}}</view>
+                    <view class="img-list">
+                        <image src="{{item.thumbnail_pic_s}}"/>
+                        <image src="{{item.thumbnail_pic_s02}}"/>
+                        <image src="{{item.thumbnail_pic_s03}}"/>
+                    </view>
+                    <view class="info">
+                        <text>{{item.author_name}}</text>
+                        <text>{{item.date}}</text>
+                    </view>
+                </view>
+            
+            </view>
+           
+        
+        </scroll-view>
+    </swiper-item>
+
+</swiper>

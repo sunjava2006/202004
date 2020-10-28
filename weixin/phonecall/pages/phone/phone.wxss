@@ -1,0 +1,25 @@
+.contact{
+    display:flex; 
+    justify-content: space-around;
+    align-items: center;
+    font-size: 1.3em;
+    border-bottom: gray solid 1rpx;
+    padding: 10rpx 0;
+    box-shadow: gray 5rpx 5rpx 15rpx;
+}
+.contact>.photo{
+    width: 70rpx;
+    height: 80rpx;
+
+}
+.call{
+    margin-left: 300rpx;
+    width: 80rpx;
+    height: 80rpx;
+ 
+}
+
+.tap{
+    background: gainsboro;
+    
+}

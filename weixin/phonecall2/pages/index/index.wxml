@@ -1,0 +1,85 @@
+<!-- wxml 微信标记语言  wei xin markup language -->
+<view class="row">
+    <view class="left">
+        <image src="/imgs/face.png" class="photo"></image>
+        <text>王瑞</text>
+    </view>
+    <image src="/imgs/phone_out.png" class="photo" bindtap="call" id="18013007327"></image>
+</view>
+<view class="row">
+    <view class="left">
+        <image src="/imgs/face.png" class="photo"></image>
+        <text>中国电信</text>
+    </view>
+    <image src="/imgs/phone_out.png" class="photo" bindtap="call" id="10000"></image>
+</view>
+<view class="row">
+    <view class="left">
+        <image src="/imgs/face.png" class="photo"></image>
+        <text>中国移动</text>
+    </view>
+    <image src="/imgs/phone_out.png" class="photo" bindtap="call" id="10086"></image>
+</view>
+<view class="row">
+    <view class="left">
+        <image src="/imgs/face.png" class="photo"></image>
+        <text>王瑞</text>
+    </view>
+    <image src="/imgs/phone_out.png" class="photo" bindtap="call" id="18013007327"></image>
+</view>
+<view class="row">
+    <view class="left">
+        <image src="/imgs/face.png" class="photo"></image>
+        <text>中国电信</text>
+    </view>
+    <image src="/imgs/phone_out.png" class="photo" bindtap="call" id="10000"></image>
+</view>
+<view class="row">
+    <view class="left">
+        <image src="/imgs/face.png" class="photo"></image>
+        <text>中国移动</text>
+    </view>
+    <image src="/imgs/phone_out.png" class="photo" bindtap="call" id="10086"></image>
+</view>
+<view class="row">
+    <view class="left">
+        <image src="/imgs/face.png" class="photo"></image>
+        <text>王瑞</text>
+    </view>
+    <image src="/imgs/phone_out.png" class="photo" bindtap="call" id="18013007327"></image>
+</view>
+<view class="row">
+    <view class="left">
+        <image src="/imgs/face.png" class="photo"></image>
+        <text>中国电信</text>
+    </view>
+    <image src="/imgs/phone_out.png" class="photo" bindtap="call" id="10000"></image>
+</view>
+<view class="row">
+    <view class="left">
+        <image src="/imgs/face.png" class="photo"></image>
+        <text>中国移动</text>
+    </view>
+    <image src="/imgs/phone_out.png" class="photo" bindtap="call" id="10086"></image>
+</view>
+<view class="row">
+    <view class="left">
+        <image src="/imgs/face.png" class="photo"></image>
+        <text>王瑞</text>
+    </view>
+    <image src="/imgs/phone_out.png" class="photo" bindtap="call" id="18013007327"></image>
+</view>
+<view class="row">
+    <view class="left">
+        <image src="/imgs/face.png" class="photo"></image>
+        <text>中国电信</text>
+    </view>
+    <image src="/imgs/phone_out.png" class="photo" bindtap="call" id="10000"></image>
+</view>
+<view class="row">
+    <view class="left">
+        <image src="/imgs/face.png" class="photo"></image>
+        <text>中国移动</text>
+    </view>
+    <image src="/imgs/phone_out.png" class="photo" bindtap="call" id="10086"></image>
+</view>

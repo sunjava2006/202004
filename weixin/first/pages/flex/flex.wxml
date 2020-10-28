@@ -1,0 +1,9 @@
+<view class="page">
+    <!-- <image src="/imgs/1.jpg" class="img"></image> -->
+    <view class="items">
+      hello
+    </view>
+    <view class="items2">
+       world
+    </view>
+</view>

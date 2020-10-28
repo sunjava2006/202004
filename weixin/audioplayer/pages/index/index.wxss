@@ -1,0 +1,27 @@
+/* audio{
+    width: 100vw;
+    height: 100vh;
+} */
+
+.player{
+    width: 748rpx;
+    height: 150rpx;
+    border: #ccc solid 1rpx;
+    display: flex;
+    justify-content: space-between;
+}
+.ctl{
+    height: 100%;
+    width: 150rpx;
+    background: #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.ctl>image{
+    height: 50rpx;
+    width: 50rpx;
+}
+.time{
+    margin-right: 30rpx;
+}

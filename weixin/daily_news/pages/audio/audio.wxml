@@ -1,0 +1,3 @@
+<!-- <audio src="/imgs/shouye.mp3" controls id="myAudio"></audio> -->
+<button bindtap="startPlay">start</button>
+<button bindtap="stopPlay">stop</button>

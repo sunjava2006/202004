@@ -1,0 +1,24 @@
+   <scroll-view scroll-x="true" class="s1" >
+      <view style="display:flex">
+          <view>
+              <image src="/imgs/face.png" class="header"></image>
+          </view>
+          
+          <view>
+              <image src="/imgs/face.png" class="header"></image>
+          </view>
+      </view>
+   </scroll-view>
+   
+
+    <scroll-view scroll-y="true" class="s2">
+     
+            <view wx:for="{{students}}" wx:for-item="stu" class="row" wx:key="idx" id="{{index}}" bindtap="openNew" >
+                {{index+1}} : 姓名：{{stu.name}}, 年龄:{{stu.age}}
+            </view>
+    </scroll-view>
+
+
+
+
+

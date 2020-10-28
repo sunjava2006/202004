@@ -1,0 +1,31 @@
+.page{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    height: 40vh;
+    background: yellow;
+
+
+    align-items: center;
+}
+
+.page view{
+    /* flex-grow: 1; */
+    width: 100rpx; 
+    height: 100rpx;
+    
+}
+.page view:first-child{
+    background: red;
+}
+
+.page view:nth-child(2){
+    background-color: blue;
+    /* align-self: flex-start; */
+ 
+}
+
+.page view:last-child{
+    background: green;
+}

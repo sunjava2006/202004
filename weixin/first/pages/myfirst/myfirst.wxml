@@ -1,0 +1,85 @@
+<view class="page">
+            <swiper autoplay circular interval="3000" duration="1500"   
+                previous-margin="0px" next-margin="0px" 
+                indicator-dots="true" indicator-color="gray"  
+                indicator-active-color="white" 
+                display-multiple-items="1" easing-function="easeOutCubic"
+                current="1">
+            <swiper-item item-id="1">
+                <image src="/imgs/1.jpg" class="ad"/>
+            </swiper-item>
+
+            <swiper-item item-id="2">
+                <image src="/imgs/2.jpg" class="ad"/>
+            </swiper-item>
+
+            <swiper-item item-id="3">
+                <image src="/imgs/3.jpg" class="ad"/>
+            </swiper-item>
+        </swiper>
+
+        <view>
+            <view>
+                <view>
+                    <image src="/imgs/home.png"></image>
+                </view>
+                
+            </view>
+            <view>
+                <view>
+                    <image src="/imgs/home.png"></image>
+                </view>
+                
+            </view>
+            <view>
+                <view>
+                    <image src="/imgs/home.png"></image>
+                </view>
+                
+            </view>
+        </view>
+        <view>
+            <view>
+                <view>
+                    <image src="/imgs/home.png"></image>
+                </view>
+                
+            </view>
+            <view>
+                <view>
+                    <image src="/imgs/home.png"></image>
+                </view>
+                
+            </view>
+            <view>
+                <view>
+                    <image src="/imgs/home.png"></image>
+                </view>
+                
+            </view>
+        </view>
+        <view>
+            <view>
+                <view>
+                    <image src="/imgs/home.png"></image>
+                </view>
+                
+            </view>
+            <view>
+                <view>
+                    <image src="/imgs/home.png"></image>
+                </view>
+                
+            </view>
+            <view>
+                <view>
+                    <image src="/imgs/home.png"></image>
+                </view>
+                
+            </view>
+        </view>
+
+</view>
+
+
+

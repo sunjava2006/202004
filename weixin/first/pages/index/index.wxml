@@ -1,0 +1,13 @@
+<view class="page">
+
+    <view class="item">1</view>
+    <view class="item">2</view>
+    <view class="item">3</view>
+    <view class="item">4</view>
+    <view class="item">5</view>
+    <view class="item">6</view>
+    
+    <view class="a">A</view>
+    <view class="b">B</view>
+
+</view>

@@ -1,0 +1,29 @@
+<view class="contact" >
+   <image src="/imgs/wy.jpg" class="photo"></image>
+   <text>王英</text>
+   <image src="{{currentPhone=='18951027870'? '/imgs/phone_out.png' : '/imgs/phonecall.png'}}" class="call"  bindtouchend="call" id="18951027870" ></image>
+</view>
+
+<view class="contact">
+   <image src="/imgs/w.jpg" class="photo"></image>
+   <text>王瑞</text>
+   <image src="{{currentPhone=='18013007327'? '/imgs/phone_out.png' : '/imgs/phonecall.png'}}" class="call" bindtap="call" id="18013007327"></image>
+</view>
+
+<view class="contact">
+   <image src="/imgs/l.jpg" class="photo"></image>
+   <text>李欣</text>
+   <image src="{{currentPhone=='13913221086'? '/imgs/phone_out.png' : '/imgs/phonecall.png'}}" class="call" bindtap="call" id="13913221086"></image>
+</view>
+
+<view class="contact">
+   <image src="/imgs/face.png" class="photo"></image>
+   <text>孙齐山</text>
+   <image src="{{currentPhone=='15006128336'? '/imgs/phone_out.png' : '/imgs/phonecall.png'}}" class="call" bindtap="call" id="15006128336"></image>
+</view>
+
+<view class="contact">
+   <image src="/imgs/face.png" class="photo"></image>
+   <text>高宏伟</text>
+   <image src="{{currentPhone=='13042567935'? '/imgs/phone_out.png' : '/imgs/phonecall.png'}}" class="call" bindtap="call" id="13042567935"></image>
+</view>

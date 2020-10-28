@@ -1,0 +1,10 @@
+<view class="page">
+    <image src="phone_call.png"></image>
+    <image src="https://gw.alicdn.com/tfs/TB1jwakrbH1gK0jSZFwXXc7aXXa-20-20.png"></image>
+    <text class="a">Jack</text>
+    <text>Tom</text>
+    Marry Peter
+
+
+</view>
+

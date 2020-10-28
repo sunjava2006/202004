@@ -1,0 +1,36 @@
+.page{
+    width: 688rpx;
+    height: 100vh;
+    background: yellow;
+    margin: 10rpx;
+    border: 1rpx gray solid;
+    padding: 20rpx;
+
+}
+
+.item{
+    height: 100rpx;
+    width: 200rpx;
+    background: blue;
+    margin: 0 14rpx 10rpx 14rpx;
+    /* float: right; */
+    display: inline-block;
+    color: white;
+}
+
+.a{
+   position: absolute;
+   z-index: 1;
+   left: 100rpx;
+   top: 200rpx;
+   width: 500rpx;
+   height: 500rpx;
+   background: #00ff0088;
+}
+.b{
+   position: relative;
+   top: -200rpx;
+   width: 500rpx;
+   height: 500rpx;
+   background: #ff0000;
+}

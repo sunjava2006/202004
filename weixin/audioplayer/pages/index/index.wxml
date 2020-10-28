@@ -1,0 +1,10 @@
+<!-- 
+<audio src="/audios/shouye.mp3"  controls/> -->
+
+<view class="player">
+     <view class="ctl" bindtap='togger'>
+         <image src="{{currentState==1?'/imgs/stop.png':'/imgs/play.png'}}"></image>
+     </view>
+     <view class="time">{{currentTime}}</view>
+</view>
+<slider min="0" max="{{duration}}" value="{{currentSecondTime}}" bindchange="slide"></slider>

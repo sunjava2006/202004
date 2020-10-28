@@ -1,0 +1,44 @@
+{
+    "pages": [
+        "pages/myfirst/myfirst",
+        "pages/flex2/flex2",
+        "pages/flex/flex",
+        "pages/index/index",
+        "pages/logs/logs"
+       
+        
+    ],
+    "window": {
+        "backgroundTextStyle": "dark",
+        "navigationBarBackgroundColor": "#ff00ff",
+        "navigationBarTitleText": "我的小程序",
+        "navigationBarTextStyle": "white"
+    },
+    "style": "v2",
+    "sitemapLocation": "sitemap.json",
+    "tabBar": {
+        "backgroundColor": "#eff",
+        "color": "#8a8a8a",
+        "selectedColor": "#1afa29",
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "text": "首页",
+                "iconPath": "imgs/home.png",
+                "selectedIconPath": "imgs/home_g.png"
+            },
+            {
+                "pagePath": "pages/logs/logs",
+                "text": "日志",
+                "iconPath": "imgs/log.png",
+                "selectedIconPath": "imgs/log_g.png"
+            },
+            {
+                "pagePath": "pages/flex/flex",
+                "text": "我的",
+                "iconPath": "imgs/my.png",
+                "selectedIconPath": "imgs/my_g.png"
+            }
+        ]
+    }
+}

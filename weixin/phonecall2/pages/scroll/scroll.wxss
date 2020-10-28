@@ -1,0 +1,19 @@
+
+.header{
+    /* border: skyblue inset 50rpx; */
+    width: 750rpx;
+    height: 50vh;
+}
+.s1,.s2{
+    height: 50vh;
+}
+.s1{
+    width: 100vw;
+}
+.row{
+    height: 120rpx;
+    border-bottom: gray solid 1rpx;
+    line-height: 120rpx;
+}
+
+

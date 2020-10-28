@@ -1,0 +1,21 @@
+.page{
+    font-size: 24rpx;
+    font-style: italic;
+}
+
+.a{
+    font-size: 5em;
+    color:skyblue;
+    text-shadow: skyblue -10rpx -10rpx 20rpx;
+    -webkit-text-stroke: 1px blue; 
+    font-weight: 500;
+    font-style: initial;
+    /* text-decoration: line-through; */
+    width: 100vw;
+    height: 200rpx;
+    background: yellow;
+    display: block;
+    text-align: center;
+    line-height: 200rpx;
+
+}
