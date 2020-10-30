@@ -1,0 +1,14 @@
+<swiper circular="true" autoplay="true" interval="3000" duration="1500"
+        indicator-dots="true" indicator-color="gray"   
+        indicator-active-color="white"  >
+    <swiper-item>
+         <image src="/imgs/1.jpg" bindtap="openPage"/> 
+    </swiper-item>
+    <swiper-item>
+        <image src="/imgs/3.jpg" bindtap="openPage"/> 
+    </swiper-item>
+    <swiper-item>
+        <image src="/imgs/2.jpg" bindtap="openPage"/> 
+    </swiper-item>
+</swiper>
+<audio src="https://aod.cos.tx.xmcdn.com/storages/d046-audiofreehighqps/CC/AD/CMCoOSUDbDRVABjTogBgpa7s.m4a" controls="true"></audio>

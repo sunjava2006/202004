@@ -1,0 +1,1 @@
+console.log('Hello 202004 班的同学。');

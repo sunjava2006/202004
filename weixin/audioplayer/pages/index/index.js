@@ -12,7 +12,7 @@ Page({
         // 创建音频对象
         this.myAudio = wx.createInnerAudioContext();
         // 设置音乐源
-        this.myAudio.src = 'https://aod.cos.tx.xmcdn.com/storages/ff2f-audiofreehighqps/65/FB/CMCoOSADR7cLACtWRwBYtVWW.m4a';
+        this.myAudio.src = 'https://aod.cos.tx.xmcdn.com/storages/d046-audiofreehighqps/CC/AD/CMCoOSUDbDRVABjTogBgpa7s.m4a';
         var _this = this;
         
 
