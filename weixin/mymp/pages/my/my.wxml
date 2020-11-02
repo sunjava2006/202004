@@ -1,0 +1,17 @@
+<!-- wxml  wei xin markup language  -->
+<swiper circular="true" autoplay="true" interval="3000" 
+duration="0" indicator-dots="true" indicator-color="white" indicator-active-color="orange">
+    <swiper-item>
+        <image src="/img/1.jpg" bindtap="openpage"></image>
+    </swiper-item>
+    <swiper-item>
+        <image src="/img/3.jpg" bindtap="openpage"></image>
+    </swiper-item>
+    <swiper-item>
+        <image src="/img/2.jpg" bindtap="openpage"></image>
+    </swiper-item>
+    
+</swiper>
+
+<audio src="https://aod.cos.tx.xmcdn.com/storages/d046-audiofreehighqps/CC/AD/CMCoOSUDbDRVABjTogBgpa7s.m4a"
+controls="true"></audio>

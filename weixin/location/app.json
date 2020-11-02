@@ -1,5 +1,6 @@
 {
     "pages": [
+        "pages/trail/trail",
         "pages/location/location",
         "pages/index/index"
     ],

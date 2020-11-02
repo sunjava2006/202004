@@ -1,0 +1,2 @@
+<view>{{speed}}</view>
+<map longitude="{{longitude}}" latitude="{{latitude}}" markers="{{markers}}" polyline="{{polyline}}"></map>
