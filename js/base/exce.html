@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var a;
+        var sum  = a + 10;
+
+        var s = "i like java";
+        try{
+            s = s.replaceAll("java", "python");
+            console.log("ok");
+        }
+        catch(ex){
+            console.error(ex.message);
+            s = s.replace("java", "Python");
+        }
+        finally{
+            console.log(s);
+        }
+        
+
+    </script>
+</body>
+</html>

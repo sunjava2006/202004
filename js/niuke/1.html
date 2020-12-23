@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 找出元素 item 在给定数组 arr 中的位置
+
+        function indexOf(arr, item){
+            var at = -1;
+
+            for(var i in arr){    // 遍历数组元素，查找是否有相同的元素
+                if(arr[i] == item){
+                    at = i;
+                    break;
+                }
+            }
+
+            return at;
+        }
+
+    </script>
+</body>
+</html>

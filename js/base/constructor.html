@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function People(arg1, arg2){
+           this.name = arg1;
+           this.age = arg2;
+           this.toString = function(){
+               return "name:"+this.name+", age:"+this.age;
+           }
+           this.a=function(){
+               return this.toString();
+           }
+        }
+
+        let p = new People('wang', 20);
+        let p2 = new People('li', 10);
+        alert(p);
+
+
+        pp = {
+            name:'xie',
+            // to:function(){
+            //     return this.name;
+            // },
+            a:function(){
+                return this.to();
+            }
+        };
+
+
+        function to(){
+            return "to to";
+        }
+    </script>
+</body>
+</html>

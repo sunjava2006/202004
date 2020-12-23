@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+    
+    <div id="app">
+        <h1>{{title}}</h1>
+        <input type="text" v-model:value="title">
+
+        <input type="button" :value="btnName" v-on:click="clickMe" >
+
+    </div>
+
+    <script>
+
+        var app = new Vue({
+            el:"#app",
+            data:{
+                title:"关于",
+                btnName:"点我"
+            },
+            methods: {
+                clickMe:function(e){
+                    alert(this.title)
+                }
+            },
+        })
+
+    </script>
+
+</body>
+</html>

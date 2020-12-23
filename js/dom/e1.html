@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            cursor: none;
+        }
+    </style>
+</head>
+<body>
+    <img src="./star.png" style="position: absolute; left: 100px; top: 300px;" id="img">
+
+
+    <script>
+        (function(){
+            document.addEventListener("mousemove", (e)=>{
+                var img = document.getElementById("img");
+                img.style.top = e.pageY-40+"px";
+                img.style.left = e.pageX-40+"px";
+            }, true);
+
+            document.addEventListener("keypress",(e)=>{
+                e.key
+            }, true);
+
+
+        })();
+
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #nav{
+            height:50px;
+            width: 100%;
+            background-color: #555;
+            position: fixed;
+            top:0;
+            z-index: 100000;
+        }
+        #nav>nav{
+            list-style: none;
+            width: 1000px;
+            height: 50px;
+            margin: auto;
+            /* background: brown; */
+            
+        }
+        #nav>nav>li{
+            float: left;
+            margin: 0 20px;
+        }
+        #nav>nav>li:last-child{
+            float: right;
+        }
+        #nav>nav>li>a{
+            color: white;
+            display: inline-block;
+            width: 100px;
+            height: 50px;
+            line-height: 50px;
+            text-decoration: none;
+            text-align: center;
+        }
+        #nav>nav>li>a:visited{
+            color: white;
+        }
+        #nav>nav>li>a:hover{
+            background-color: black;
+            transition: all linear 1000ms;
+        }
+        iframe{
+            position: relative;
+            top:50px;
+            width: 100%;
+            height: 1200px;
+        }
+    </style>
+</head>
+<body>
+    <div id="nav">
+        <nav>
+            <li> <a href="https://www.qq.com" target="main">商品分类</a> </li>
+            <li> <a href="https://www.sina.com.cn" target="main">添加商品</a> </li>
+            <li> <a href="http://www.people.com.cn" target="main">订单查看</a> </li>
+            <li> <a href="http://www.taobao.com" target="main">配送管理</a> </li>
+            <li> <a href="">退出登录</a> </li>
+        </nav>
+    </div>
+    <iframe name="main" id="main" src="http://www.qq.com" frameborder="0"></iframe>
+    
+</body>
+</html>

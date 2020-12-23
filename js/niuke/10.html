@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // 在数组 arr 的 index 处添加元素 item。不要直接修改数组 arr，结果返回新的数组
+        function insert(arr, index, item) {
+            // 新建一个数组a
+            var a = [];
+
+            // 1 、将index之前的元素加入到a中去。
+            for(var i=0; i<index; i++){
+                a.push(arr[i]);
+            }
+
+            // 2、添加item到a中index位置。
+            a.push(item);
+
+            // 3、添加index之后的元素到a中去。
+            for(var i=index; i<arr.length; i++){
+                a.push(arr[i]);
+            }
+
+            // 返回这个新数组aa
+            return a;
+        }
+
+        a = [1,2,3,4,5,6,7];
+        a2 = insert(a, -1, 0);
+        b = insert(a, 0, 0);
+        c = insert(a, 3, 0);
+        d = insert(a, 6, 0);
+        d2 = insert(a, 7, 0);
+        d3 = insert(a, 8, 0);
+
+
+    </script>
+</body>
+</html>

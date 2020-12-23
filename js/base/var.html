@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        p = {name:"wang", age:20};
+
+        a = 999;  // 全局变量
+        var b = 888; //  局部
+
+        document.write(a);
+        document.write(b);
+
+        // 基于对象。
+        // 全局对象ECMAScript，规定。不属性任何其它对象的，都属性全局对象。window对象。
+
+        function fn(){
+            var f = 100;
+            c = 200;
+
+            document.write(f);
+            document.write(c);
+        }
+
+        fn();
+
+        a = {flag:false}
+        if(a){
+            a.flag = true;
+        }
+
+        (function(){
+            var a = 90;
+            alert(90);
+        })();
+
+    </script>
+    
+</body>
+</html>

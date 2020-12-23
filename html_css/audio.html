@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="checkbox" id="playState">播放
+
+    <script>
+
+        (function(){
+            var audio = new Audio('./shouye.mp3');
+            var playState = document.querySelector('#playState');
+            playState.addEventListener('change', function(e){
+                if(playState.checked){
+                    audio.play();
+                }else{
+                    audio.pause();
+                }
+            }, false);
+        })();
+
+    </script>
+</body>
+</html>

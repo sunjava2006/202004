@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        a{
+            width: 50px;
+            height: 24px;
+            display: inline-block;
+            border: outset gray 1px;
+            background: #eee;
+            color: #333;;
+            text-align: center;
+            text-decoration: none;
+            line-height: 24px;
+            font-size: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <button>click</button>
+
+    <a id="qq" href="http://www.qq.com">click</a>
+
+    <script>
+        (function(){
+            var btn = document.querySelector('button');
+            btn.addEventListener('click',(e)=>{
+
+                console.log("button-------------");
+                // e.currentTarget.removeEventListener('click',arguments.callee, false);
+            },false);
+            var counter = 0;
+            document.addEventListener('click',function(e){
+                console.log('document-------------');
+                counter++;
+                if(counter>=3){
+                    e.stopPropagation(); //  停止事情传播。
+                }
+            }, true);
+
+
+            var qq = document.querySelector("#qq");
+            qq.addEventListener('click',function(e){
+                e.preventDefault(); // 阻止默认行为
+                alert("----------------------");
+            }, false);
+
+        })();
+
+
+    </script>
+</body>
+</html>

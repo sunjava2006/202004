@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="time"></div>
+    <script>
+        function showTime(){
+            var now = new Date();
+            var s = now.getFullYear()+"-"+(1+now.getMonth())+"-"+now.getDate()+"&nbsp;"
+                    +now.getHours()+":"+now.getMinutes()+":"+now.getSeconds();
+            // document.write(s);
+            var div = document.querySelector('#time'); // 查找并获取页面元素。
+            div.innerHTML=s; // 指定元素的子元素（内容）。
+            // window.setTimeout(showTime, 1000);
+        }
+
+        // window.setTimeout(showTime, 1000); 定时器
+
+        window.setInterval(showTime, 1000); // 按时间间隔持续执行。
+    </script>
+</body>
+</html>

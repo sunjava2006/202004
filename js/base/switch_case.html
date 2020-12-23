@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var ran = Math.floor(Math.random()*10);
+
+        var msg;
+
+        switch(ran){
+            case 0:
+                msg = 0;
+                break;
+            case 1:
+                msg = 1;
+                break;
+            case 2:
+                msg = 2;
+                break;
+            case 3:
+                msg = 3;
+                break;
+            case 4:
+                msg = 4;
+                break;
+            case 5:
+                msg = 5;
+                break;
+            case 6:
+                msg = 6;
+                break;
+            case 7:
+                msg = 7;
+                break;
+            case 8:
+                msg = 8;
+                break;
+            case 9:
+                msg = 9;
+                break;
+            default:
+                msg = '两位数！';
+                break;
+        }
+
+        document.write(ran + "是" + msg)
+    </script>
+</body>
+</html>

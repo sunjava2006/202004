@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function multiply(a, b) {
+            var strA = ""+a;
+            var strB = ""+b;
+            
+            var surA = -1!=strA.indexOf('.')?strA.slice(strA.indexOf('.')+1):'';
+            var surAlen = surA.length;
+            var A = strA*Math.pow(10, surAlen);
+
+            var surB = -1!=strB.indexOf('.')?strB.slice(strB.indexOf('.')+1):'';
+            var surBlen = surB.length;
+            var B = strB*Math.pow(10, surBlen);
+
+
+            var result = A * B ;
+            return  result /( Math.pow(10,(surAlen+surBlen)));
+           
+        }
+
+        a=  multiply(300, 0.00001);
+
+
+    </script>
+</body>
+</html>

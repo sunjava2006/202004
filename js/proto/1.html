@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function People(name, age, gender){
+            this.name = name;
+            this.age = age;
+            this.gender = gender;
+
+        }
+
+        People.prototype.toString= function(){
+                return this.name +","+this.age +","+this.gender;
+            }
+        People.prototype.work = function(){
+            console.log(this.name + "工作中 。。");
+        }
+
+        People.prototype.country = "China";
+
+        var p = new People('wang', 20, 'male');
+        var p2 = new People('Huang', 10, 'female');
+        var p3 = new People('Li', 22, 'male');
+        var p4 = new People('Zhang', 21, 'male');
+
+        //======================================================
+        function Student(name, age, gender, id){
+            this.id = id;// 生成实例属性
+            People.call(this, name, age, gender); // 借用构造
+        }
+
+        Student.prototype=People.prototype; // 借用原型
+        Student.prototype.constructor=Student; // 修改原型中构造引用。
+
+    </script>
+</body>
+</html>

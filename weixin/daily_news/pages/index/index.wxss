@@ -95,6 +95,10 @@
 .title{
     font-size: 1.4em;
     color: #444;
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100vw;
 }
 .info{
     display: flex;

@@ -1,0 +1,15 @@
+.txt{
+    /* border: solid gray 1rpx; */
+    width: 150rpx;
+    display: inline-block;
+}
+.row{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 40rpx 0rpx;
+}
+.input{
+    border: solid gray 1rpx;
+   
+    width: 550rpx;
+}

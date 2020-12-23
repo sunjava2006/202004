@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 判断101-200之间有多少个素数，并输出所有素数。
+
+        var counter = 0; // 记数器，用来记录素数的个数。
+
+        for(var i=101; i<200; i++){ // 设置测试数的取值范围
+            for(var j=2; j<=i; j++){  // 设置除数的取值范围。
+                if(i%j==0){              // 一但测试的数能被整除。除数与被除数相等，是素数。
+                    if(i==j){
+                        console.log(i);
+                        counter++;
+                    }
+                    else{                  //不等，就不是素数。取下一个测试数。
+                        break;
+                    }
+                }
+            }
+        }
+
+        console.log("计数：" + counter)
+
+    </script>
+</body>
+</html>

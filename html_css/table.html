@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            border: gray solid 2px;
+            width: 500px;
+            border-collapse:collapse;
+        }
+        th, td{
+            /* border: gray dotted 1px; */
+        }
+        tr{
+            border-bottom: gray solid 1px;
+        }
+        thead>tr{
+            background-color: yellowgreen;
+        }
+        tbody>tr:nth-child(odd){
+            background:wheat;
+        }
+        tbody>tr:nth-child(even){
+            background:yellow;
+        }
+        tfoot{
+            background-color: #666;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+    <table >
+        <caption>人员表</caption>
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>年龄</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>小五</td>
+                <td>30</td>
+            </tr>
+            <tr>
+                <td>小李</td>
+                <td>90</td>
+            </tr>
+            <tr>
+                <td>小黄</td>
+                <td>22</td>
+            </tr>
+            <tr>
+                <td>小王</td>
+                <td>19</td>
+            </tr>
+            <tr>
+                <td>小张</td>
+                <td>30</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>平均</td>
+                <td>55</td>
+            </tr>
+        </tfoot>
+
+    </table>
+</body>
+</html>

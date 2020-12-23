@@ -1,0 +1,72 @@
+<swiper class="slide" circular="true" indicator-dots="true"
+        indicator-color="gray" indicator-active-color="orange"
+        autoplay="true" interval="3000" duration="1500" current="1" >
+    <swiper-item>
+       <image  src="/imgs/1.jpg"/>
+    </swiper-item>
+    <swiper-item>
+        <image  src="/imgs/3.jpg"/>
+    </swiper-item>
+    <swiper-item>
+        <image  src="/imgs/2.jpg"/>
+    </swiper-item>
+    
+</swiper>
+<view class="nine">
+    <view>
+         <view>
+             <image src="/imgs/home.png"/>
+         </view>
+         <view>
+             <image src="/imgs/home.png"/>
+         </view>
+         <view>
+             <image src="/imgs/home.png"/>
+         </view>
+         <view>
+             <image src="/imgs/home.png"/>
+         </view>
+    </view>
+    <view>
+         <view>
+             <image src="/imgs/home.png"/>
+         </view>
+         <view>
+             <image src="/imgs/home.png"/>
+         </view>
+         <view>
+             <image src="/imgs/home.png"/>
+         </view>
+         <view>
+             <image src="/imgs/home.png"/>
+         </view>
+    </view>
+    <view>
+         <view>
+             <image src="/imgs/home.png"/>
+         </view>
+         <view>
+             <image src="/imgs/home.png"/>
+         </view>
+         <view>
+             <image src="/imgs/home.png"/>
+         </view>
+         <view>
+             <image src="/imgs/home.png"/>
+         </view>
+    </view>
+    <view>
+         <view>
+             <image src="/imgs/home.png"/>
+         </view>
+         <view>
+             <image src="/imgs/home.png"/>
+         </view>
+         <view>
+             <image src="/imgs/home.png"/>
+         </view>
+         <view>
+             <image src="/imgs/home.png"/>
+         </view>
+    </view>
+</view>

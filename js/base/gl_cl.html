@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        a = 80;
+        console.log("init global a: "+a);
+
+        function fn(){
+             a = 100;
+            this. a = 90;
+            console.log("in fn a: " + a);
+        }
+
+        p = {a:10};
+        p.f = fn;
+        p.f();
+
+        console.log(" after fn() global a: "+a);
+
+
+    </script>
+</body>
+</html>

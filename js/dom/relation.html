@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            border-collapse: collapse;
+        }
+
+    </style>
+</head>
+<body>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>语言</th>
+                <th>成绩</th>
+            </tr>
+        </thead>
+        
+        <tr>
+            <td>java</td>
+            <td>90</td>
+        </tr>
+        <tr>
+            <td>python</td>
+            <td>99</td>
+        </tr>
+        <tr>
+            <td>js</td>
+            <td>98</td>
+        </tr>
+        <tr>
+            <td>c</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>c++</td>
+            <td></td>
+        </tr>
+        <tfoot>
+            <tr>
+                <td>平均</td>
+                <td>96</td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <script>
+
+        var tr3 =  document.querySelector('tbody>tr:nth-child(3)');
+        tr3.style.border="dotted green 2px";
+
+        // 取子节点
+        tr3.firstChild;
+
+
+    </script>
+
+</body>
+</html>

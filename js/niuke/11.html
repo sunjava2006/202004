@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 统计数组 arr 中值等于 item 的元素出现的次数
+        function count(arr, item) {
+            // 申明一个计数器counter，为0。
+            var counter = 0;
+
+            // 遍历数据元素，并与item比较。如相同，counter加1 。
+            for(var i of arr){
+                if(i == item){
+                    counter++;
+                }
+            }
+
+            return counter;
+
+        }
+
+    </script>
+</body>
+</html>

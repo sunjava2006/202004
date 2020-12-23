@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function sort(x,y,z){
+            var min, mid, max;
+            min = x;
+            if(y<min){
+                mid = min;
+                min = y;
+            }else{
+                mid = y;
+            }
+            if(z<min){
+                max = min;
+                min = z;
+            }else{
+                max= z;
+            }
+            if(mid>max){
+                var t =  mid;
+                mid = max;
+                max = t;
+            }
+            console.log(min+","+mid+","+max);
+        }
+
+        var a = Math.floor(Math.random()*100);
+        var b = Math.floor(Math.random()*100);
+        var c = Math.floor(Math.random()*100);
+        // console.log(a+","+b+","+c);
+        sort(a,b,c);
+
+    </script>
+</body>
+</html>

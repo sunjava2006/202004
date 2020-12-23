@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #txt,#face{
+            font-size: 5em;
+            color: blueviolet;
+            height: 200px;
+            border: solid brown 2px;
+        }
+        #btnStop, #score,.score{
+            width: 300px;
+            height: 140px;
+            font-size: 5em;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="txt"></div>
+    <div id="face"></div>
+    <button id="btnStop">不玩了</button> <label class="score">得分：</label> <label id="score">0</label>
+    
+
+
+
+    <script>
+        (function(){
+            var array = [];
+            var a = 97;
+            for(var i=0;i<26;i++){
+                array.push(String.fromCharCode(a+i))
+            }
+
+            var intervalA = setInterval(()=>{
+                // 产生一个在0-25之间的随机数
+                var idx = Math.round(Math.random()*10000)%26;  
+                var char = (array[idx]);  // 取出一个字母
+
+                var div = document.getElementById("txt");
+                div.innerText += char;
+
+            }, 1000);
+            
+            var stop = document.querySelector("#btnStop");
+            stop.addEventListener("click", function(e){
+                clearInterval(intervalA);
+                e.target.disabled=true;
+            });
+            
+            document.addEventListener("keypress",(e)=>{
+                var input = e.key; // 获取键盘输入的字符。
+                var div = document.getElementById("txt");
+                var str = div.innerText;
+                var score = document.querySelector('#score');// 分数label
+                if(input === str.charAt(0)){
+                    div.innerText = str.slice(1);
+
+                    //=============================================
+                   var ding = new Audio("./ding.mp3");
+                   ding.play();
+                   //=========================================
+                   // 加分
+                   score.innerText = Number(score.innerText)+10;
+
+
+                }else{
+                    // 给哭脸
+                    var cry = document.getElementById("face");
+                    var img = '<img src="./crying.png">';
+                    cry.innerHTML += img;
+
+                     // 减分
+                   score.innerText = Number(score.innerText)-10;
+                }
+
+            },false);
+        })();
+       
+
+    </script>
+</body>
+</html>

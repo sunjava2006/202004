@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var a = "c h i n a".split(" ");
+        a.push(undefined);
+
+        for(var i in a){
+            console.log(i +":" + a[i]);
+        }
+        console.log("============================");
+        for(var i of a){
+            console.log(i);
+        }
+        console.log("============================");
+        p = {name:'wang', age:20, gender:"male"};
+        for(var i in p){
+            console.log(i + ":" + p[i]);
+        }
+
+        // console.log("============================");
+        // for(var i of {name:'wang', age:20, gender:"male"}){
+        //     console.log(i);
+        // }
+
+    </script>
+</body>
+</html>

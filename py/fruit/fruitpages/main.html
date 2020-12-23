@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./node_modules/jquery/dist/jquery.js"></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css">
+    <style>
+        @import url("./node_modules/bootstrap/dist/css/bootstrap.css");
+        @import url("./node_modules/bootstrap/dist/css/bootstrap-theme.css");
+        body{
+            /* background-color: gray; */
+        }
+        .row{
+            background-color: white;
+        }
+        div[class*=col]{
+            border: solid red 1px;
+        }
+    </style>
+
+    <title>Document</title>
+</head>
+<body>
+
+   
+   
+   <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" id="app">
+       <!-- Brand and toggle get grouped for better mobile display -->
+       <div class="navbar-header">
+           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+               <span class="sr-only">Toggle navigation</span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+           </button>
+           <a class="navbar-brand" ><span class="glyphicon glyphicon-home"></span></a>
+           
+           
+       </div>
+   
+       <!-- Collect the nav links, forms, and other content for toggling -->
+       <div class="collapse navbar-collapse navbar-ex1-collapse">
+           <ul class="nav navbar-nav">
+               <li v-bind:class="{'active':current==1}" id="1" v-on:click="changop"><a href="types.html" target="iframe">商品分类</a></li>
+               <li v-bind:class="{'active':current==2}" id="2" v-on:click="changop"><a href="fruits.html" target="iframe">商品维护</a></li>
+               <li v-bind:class="{'active':current==3}" id="3" v-on:click="changop"><a href="#">订单查看</a></li>
+               <li v-bind:class="{'active':current==4}" id="4" v-on:click="changop"><a href="#">配送管理</a></li>
+           </ul>
+           
+           <ul class="nav navbar-nav navbar-right" style="position: relative; right: 20px;">
+               <li><a href="#">退出登录</a></li>
+              
+           </ul>
+       </div><!-- /.navbar-collapse -->
+   </nav>
+   
+   <script>
+       var app = new Vue({
+           el:'#app',
+           data:{
+               current:1
+           },
+           methods:{
+            changop(e){
+                
+                this.current = e.currentTarget.id;
+     
+            }
+           }
+       })
+
+   </script>
+   
+   
+    
+    <!-- <div class="container"> -->
+        <iframe name="iframe" src="types.html" style="top: 80px; position: relative;" frameborder="0" height="1000" class="col-xs-12 col-sm-12 col-md-12 col-lg-12"></iframe>
+        
+        
+        
+       
+        
+        
+    <!-- </div> -->
+    
+
+</body>
+</html>

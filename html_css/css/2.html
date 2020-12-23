@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        a.btn{
+            display: inline-block;
+            width: 60px;
+            height: 30px;
+            border: solid gray 1px;
+            background-color: gainsboro;
+            text-decoration: none;
+            text-align: center;
+            line-height: 30px;
+            color: black;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        a.btn:hover{
+            background-color: brown;
+            color: white;
+            transform: scale(1.2);
+            transition: all linear 300ms;
+        }
+        p:first-letter{
+            background: gray;
+        }
+        p:first-line{
+            font-style: italic;
+            
+        }
+       
+        #pp{
+            background-color: yellow;
+        }
+        #pp+p{
+            background-color: aqua;
+        }
+        p:not(#pp){
+            color: red;
+        }
+        
+    </style>
+</head>
+<body>
+    <button class="btn">click</button>
+    <a href="" class="btn">href</a>
+    <h1>baout</h1>
+    <p >关于............</p>
+    <p id="pp">重点，...........</p>
+    <p>总结.....................<br>
+       这个不是斜的吧？
+    </p>
+    <input type="button" value="确定1" class="btn-info btn">
+    <input type="button" value="确定2" class="btn-warn btn">
+    <input type="button" value="确定3" class="btn">
+    <style>
+        input[class~='btn']{
+            border-radius: 5px;
+        }
+        input[class|='btn']{
+            border: gainsboro solid 1px;
+        }
+        p:first-of-type{
+            background-color: rebeccapurple;
+        }
+    </style>
+</body>
+</html>

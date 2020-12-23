@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text"  id="keyWord">
+
+    <script>
+        (function(){
+            var txt = document.getElementById('keyWord');
+            txt.addEventListener("keyup", (e)=>{
+                var input = e.target;
+                var value = input.value;
+                input.value = value.replace('法轮功','XXX');
+
+
+            },false);
+        })();
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        console.log(1>0 && 100>0);  // true && true    0000001 && 0000001
+        console.log(1>0 & 100>0);   // true & true     0000001 & 0000001
+        
+
+        console.log(1>0 && 100>0 ? 5:50);
+        console.log(1>0 & 100>0 ? 5:50);
+
+
+        function a(){
+            console.log("a");
+            return true;
+        }
+
+        function b(){
+            console.log("b");
+            return false;
+        }
+
+        // b() & b();
+        a() | a()
+
+        console.log( true && 100);
+        console.log( 0 && new Object(123));
+        console.log( true && null);
+        console.log( NaN || NaN);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>关于下周教室调整</h1>
+    <p>
+        下周还是要上课的.............
+    </p>
+    <input type="text" value="小张" id="userName">
+
+    <input type="checkbox" name="gender" value="男" checked>男
+    <input type="checkbox" name="gender" value="女" checked>女
+
+    <script>
+        var h1 = document.querySelector('h1');
+        var txt = h1.innerText;
+
+        var input = document.querySelector("#userName");
+        var value = input.value;
+
+        //-------------------------------------
+        var genderRadio = document.querySelectorAll("[name=gender]");
+        for(var i=0; i<genderRadio.length; i++){
+            var g = genderRadio[i];
+            if(g.checked){
+                console.log(g.value + "是选中的");
+            }else{
+                console.log(g.value + "没有选中");
+            }
+        }
+    </script>
+</body>
+</html>

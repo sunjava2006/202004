@@ -1,0 +1,16 @@
+<form bindsubmit="myrequest">
+
+    <view class="row">
+       <text class="txt" >用户名：</text>
+       <input class="input" type="text" value="{{userName}}" name="userName"></input>
+    </view>
+    
+    <view class="row">
+       <text class="txt">密码：</text>
+       <input class="input" type="number" password="true" value="{{pwd}}" name="pwd"></input>
+    </view>
+
+    <button form-type="submit">注册</button>
+    <button form-type="reset">重置</button>
+
+</form>

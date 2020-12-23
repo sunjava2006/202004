@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 在数组 arr 开头添加元素 item。不要直接修改数组 arr，结果返回新的数组
+        function prepend(arr, item) {
+            // var a = arr.concat();
+            // a.unshift(item);
+            // return a;
+
+            var a = [];
+            a.push(item);
+            for(var i of arr){
+                a.push(i);
+            }
+
+            return a;
+        }
+
+    </script>
+</body>
+</html>

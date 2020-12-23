@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>水果配送服务登录</title>
+    <script src="./node_modules/jquery/dist/jquery.js"></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.js"></script>
+
+    <style>
+        @import url("./node_modules/bootstrap/dist/css/bootstrap.css");
+        @import url("./node_modules/bootstrap/dist/css/bootstrap-theme.css");
+        html, body{
+            height: 100%;
+        }
+        .c{
+            display: flex ; 
+            justify-content: center ; 
+            align-items: center;
+            height: 100%;
+            
+        }
+        .error{
+            margin-top: 10px;
+            color: red;
+            height: 1.2em;
+            line-height: 1.2em;
+            font-size: 1em;
+            /* border: solid rebeccapurple 1px; */
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container c" >
+        <div class="panel panel-primary " style="width: 70%;">     
+            <div class="panel-heading">
+                  <h3 class="panel-title">登录</h3>
+            </div>
+            <div class="panel-body">
+                <div class="input-group">
+                    <div class="input-group-addon">登录名</div>
+                    <input type="text" class="form-control" id="userName" placeholder="email或手机号码">
+
+                </div>
+                <p class="error" id="userNameMsg"></p>
+                <div class="input-group">
+                    <div class="input-group-addon">密码</div>
+                    <input type="password" class="form-control" id="password" placeholder="6位数字">
+                </div>
+                <p class="error" id="pwdMsg"></p>
+
+                
+            </div>
+            <div class="panel-footer">
+                <label class="error" id="loginMsg"></label>
+                <button id="btnLogin" class="btn btn-primary pull-right">登录</button>
+                <br><br>
+          </div>
+      </div>
+    </div>
+    
+  <script>
+      (function(){
+          var btnLogin = document.querySelector("#btnLogin");
+          btnLogin.addEventListener("click",(e)=>{
+                var userName = document.querySelector("#userName").value;
+                var password = document.querySelector("#password").value;
+                var userNameMsg = document.querySelector("#userNameMsg");
+                userNameMsg.innerHTML="";
+                var pwdMsg = document.querySelector("#pwdMsg");
+                pwdMsg.innerHTML="";
+                var flag = true;
+                // 校验用户名和密码
+                if(!(/^\w+@\w+\.(com|cn)$/.test(userName) || /^\d{11}$/.test(userName))){
+                    flag = false;
+                    userNameMsg.innerHTML ="不是合法的用户名，输入错误。";
+                }
+                if(!/^\d{6}$/.test(password)){
+                    flag = false;
+                    pwdMsg.innerHTML="密码应为6位数字，输入错误。";
+                }
+                if(flag){
+                    //  AJAX发送异步请求
+                    var ajax = new XMLHttpRequest();
+                    ajax.onreadystatechange=function(){
+                        //  在成功返回时
+                        if(ajax.readyState==4 && ajax.status==200){
+                            var data = eval("("+ajax.responseText+")"); //获取返回数据
+                            console.log(data);
+                            if(data.login=="ok"){
+                                location = "main.html"; 
+
+                            }else{
+                                document.querySelector("#loginMsg").innerHTML="登录失败，可能是用户名或密码不正确。";
+                            }
+                        }
+                    };
+
+                    ajax.open("GET", "http://localhost:5000/login?userName="+userName+"&pwd="+password, true);
+                    ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                    ajax.send();
+
+                }
+
+          }, false);
+      })()
+
+  </script>  
+  
+</body>
+</html>

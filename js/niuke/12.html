@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // 找出数组 arr 中重复出现过的元素
+        function duplicates(arr) {
+            var init = arr.concat();
+            // 申明一个数组a，存放重复元素.
+            var a = [];
+
+            // 遍历数组中元素。与数组中其它元素相比较。如相同，设置重复数加1。判断重复数为1时，添加到a中，并删除该元素。重复数大于1时，仅删除该元素。
+            while(init.length>0){
+                 var item = init[0]; // 要比较的元素
+                 // 设置一个重复计数器，存储重复数。初值为0。
+                 var counter = 0;
+                 for(var i=init.length-1; i>0; i--){
+                     if(item == init[i]){
+                         counter++;
+                        if(counter==1){
+                            a.push(item);
+                            init.splice(i,1);
+                        }
+                        if(counter>1){
+                            init.splice(i,1);
+                        }
+                     }
+                     
+                     
+                 }
+                 init.shift();
+
+            }
+            return a;
+            
+        }
+
+        a =  duplicates([1,2,3,1,2,3,1,4,5,6,3,4]);
+
+    </script>
+</body>
+</html>

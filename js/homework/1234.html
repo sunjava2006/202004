@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 有四个数字：1、2、3、4，能组成多少个互不相同且无重复数字的三位数？各是多少？ 
+        counter = 0;
+        for(let h of [1,2,3,4]){
+            for(let m of [1,2,3,4]){
+                for(let l of [1,2,3,4]){
+                    if(h!=m && m!=l && h!=l){
+                        counter++;
+                        console.log(h*100+m*10+l);
+                    }
+                }
+            }
+        }
+
+        console.log("共" + counter + "个。");
+
+
+    </script>
+</body>
+</html>

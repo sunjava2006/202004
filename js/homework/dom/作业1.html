@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li:hover{
+            cursor: pointer;
+            background-color: brown;
+            color:white;
+            transition: all linear 500ms;
+        }
+        .active{
+            color: brown;
+        }
+
+    </style>
+</head>
+<body>
+    <ul>
+        <li onclick="selectThis(this)">a</li>
+        <li onclick="selectThis(this)">b</li>
+        <li onclick="selectThis(this)">c</li>
+        <li onclick="selectThis(this)">d</li>
+        <li onclick="selectThis(this)">e</li>
+    </ul>
+    <input type="radio" name="direction" value="1" checked>从下向上
+    <input type="radio" name="direction" value="0">从上向下
+    <h1>题目：</h1>
+    <p>
+        根据单选项，将点击的列表元素向上或向下移动一个元素。
+    </p>
+
+    <script>
+        function selectThis(current){
+            
+            var directionOpt = document.querySelector("input[name=direction]:checked");
+            if(directionOpt.value==='1'){// 从下向上
+               var previous = current.previousElementSibling;
+               if(previous){
+                    current.parentNode.insertBefore(current, previous);
+                    current.className="active";
+
+               }
+               
+            }else{ // 从上向下
+                var next = current.nextElementSibling;
+                if(next){
+                    current.parentNode.insertBefore(next,current);
+                    current.className="active";
+                }
+                
+            }
+
+            setTimeout(()=>{
+                current.className="";
+            }, 2000);
+
+           
+        }
+
+
+    </script>
+</body>
+</html>

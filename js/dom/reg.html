@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input{
+            width: 300px;
+        }
+        .ok{
+            color: green;
+        }
+        .nook{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <table>
+            <tr>
+                <td>用户名</td>
+                <td> <input type="text" name="userName" id="userName" placeholder="以字母开头，3-12个字母与数字组成" title="以字母开头，3-12个字母与数字组成"> </td>
+                <td id="userNameInfo"></td>
+            </tr>
+            <tr>
+                <td>密码</td>
+                <td><input type="text" name="pwd" id="pwd" placeholder="6位字母、数字组成"></td>
+                <td id="pwdInfo"></td>
+            </tr>
+            <tr>
+                <td>手机</td>
+                <td><input type="text" name="phoneNO" id="phoneNO"></td>
+                <td id="phoneNOInfo"></td>
+            </tr>
+            <tr>
+                <td>e-mail</td>
+                <td><input type="text" name="email" id="email"></td>
+                <td id="emailInfo"></td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <input type="reset" value="清除">
+                    <input type="submit" value="发送" id="btnSubmit">
+                </td>
+               
+            </tr>
+        </table>
+
+    </form>
+
+        <script>
+            (function(){
+                var btnSubmit = document.querySelector("#btnSubmit");
+                btnSubmit.addEventListener('click', function(e){
+                    var userNameInfo = document.querySelector('#userNameInfo');
+                    var pwdInfo = document.querySelector("#pwdInfo");
+                    var phoneNOInfo = document.querySelector('#phoneNOInfo');
+                    var emailInfo = document.querySelector("#emailInfo");
+
+                    var ok = true;// 验证通过标记
+
+                    // 1、以字母开头，3-12个字母与数字组成 userName
+                    var userNameRegexp = /^[a-zA-Z][a-zA-Z0-9]{2,11}$/;
+                    var userName = document.querySelector('#userName').value;
+                    var userNameOk = userNameRegexp.test(userName);
+                    if(userNameOk){
+                        userNameInfo.innerHTML="&#10003;";
+                        userNameInfo.className="ok";
+
+                    }else{
+                        userNameInfo.innerHTML="&#10008;以字母开头，3-12个字母与数字组成";
+                        userNameInfo.className="nook";
+                        ok = false;
+                    }
+                    // 2、6位字母、数字组成
+                    var pwdRegexp = /^[0-9a-zA-Z]{6}$/;
+                    var pwd = document.querySelector("#pwd").value;
+                    if(pwdRegexp.test(pwd)){
+                        pwdInfo.innerHTML="&#10003;";
+                        pwdInfo.className="ok";
+                    }
+                    else{
+                        pwdInfo.innerHTML="&#10008;6位字母、数字组成";
+                        pwdInfo.className="nook";
+                        ok = false;
+                    }
+
+                    // 3、验证phoneNO
+                    var phoneNoRegexp = new RegExp(/^(139|138|133|189|180|137|152|177|172)\d{8}$/);
+                    var phoneNO = document.querySelector("#phoneNO").value;
+                    if(phoneNoRegexp.test(phoneNO)){
+                        phoneNOInfo.innerHTML="&#10003;";
+                        phoneNOInfo.className='ok';
+                    }else{
+                        phoneNOInfo.innerHTML="&#10008;不是合法的手机号码";
+                        phoneNOInfo.className="nook";
+                        ok = false;
+                    }
+
+                    // 4、validating email
+                    var emailRegexp = new RegExp("^\\w+@\\w+\\.(com|cn|edu|org|gov)$");
+
+                    var email = document.querySelector("#email").value;
+                    if(emailRegexp.test(email)){
+                        emailInfo.innerHTML="&#10003;"
+                        emailInfo.className = "ok";
+                    }else{
+                        emailInfo.innerHTML="&#10008;格式不对"
+                        emailInfo.className = "nook";
+                        ok = false;
+                    }
+
+                    if(!ok){    
+                        e.preventDefault(); // 阻止submit按钮进行提交。
+                    }
+                    
+
+                   
+                }, false);
+            })();
+           
+
+        </script>
+
+
+
+</body>
+</html>

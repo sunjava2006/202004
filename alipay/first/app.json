@@ -1,0 +1,30 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/my/my"
+    ],
+    "window": {
+        "defaultTitle": "我的小程序",
+        "titleBarColor": "#ff0000",
+        "backgroundImageColor": "#00ff00",
+        "titleImage": "https://img-s-msn-com.akamaized.net/tenant/amp/entityid/BB18EPIs.img"
+    },
+    "tabBar": {
+        "textColor": "#444",
+        "selectedColor": "#44ff44",
+        "items": [
+            {
+                "pagePath": "pages/my/my",
+                "name": "我的",
+                "icon": "/imgs/my.png",
+                "activeIcon": "/imgs/my_g.png"
+            },
+            {
+                "pagePath": "pages/index/index",
+                "name": "首页",
+                "icon": "/imgs/home.png",
+                "activeIcon": "/imgs/home_g.png"
+            }
+        ]
+    }
+}

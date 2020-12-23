@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        /* 定义一个Student类型构造方法，
+           有属性：姓名、年龄、学号。
+           有方法：读书、写作业。
+        */
+        function Student(name, age, id){
+            this.name = name;
+            this.age = age;
+            this.id = id;
+            this.read = function(){
+                        console.log(this.name + "正在读书。");
+                    };
+            this.write = function(){
+                        console.log(this.name + "正在写作业。");
+                    };
+        }
+
+        var s1 = new Student("李小红", 20, '20010102');
+
+        var dog = {name:"旺旺"};
+
+        function reading(book1, book2, book3){
+            console.info(this.name+"reading......"+book1+","+book2+","+book3);
+        }
+
+        reading.call(dog, 'Javascript从入门到精通', 'Java编程宝典' , '之设计模式');
+
+        reading.apply(s1, ['Javascript从入门到精通', 'Java编程宝典' , '之设计模式'] )
+
+
+    </script>
+</body>
+</html>

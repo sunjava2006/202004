@@ -1,0 +1,45 @@
+.slide{
+    width: 750rpx;
+    height: 40vh;
+    background: white;
+}
+swiper-item:first-child{
+    background: yellow;
+}
+swiper-item:nth-child(2){
+    background: yellowgreen;
+}
+swiper-item:last-child{
+    background: skyblue;
+}
+
+swiper-item>image{
+    width: 750rpx;
+    height: 40vh;
+}
+.nine{
+    height: 60vh;
+    background: bisque;
+    display: flex;
+    flex-direction: column;
+}
+.nine>view{
+    /* border: solid gray 1px; */
+    flex-grow: 1;
+    display: flex;     
+    flex-direction: row;
+}
+.nine>view>view{
+    /* border: solid gray 1px; */
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;  /*设置行方向为主轴方向*/
+    justify-content: center; /*设置主轴方向的对齐方式*/
+    align-items: center; /*设置次轴方向的对齐方式*/
+
+}
+
+.nine>view>view>image{
+    width: 100rpx;
+    height: 100rpx;
+}

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <button onclick="window.open('http://www.qq.com', '_blank')">在新窗口打开</button>
+    <button onclick="window.open('http://www.qq.com', '_self')">在当前窗口打开</button>
+    <button onclick="window.open('http://www.qq.com', 'myFrame')">在指定窗口打开</button>
+
+    <iframe name="myFrame" src="../dom/1.html" frameborder="0" style="width: 800px;height: 1200px;border:solid black 1px;"></iframe>
+    <button onclick="window.open('http://www.qq.com','_blank', 'width=400,height=400,resizeable=no');">open</button>
+</body>
+</html>

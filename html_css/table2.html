@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            width: 480px;
+            border: solid black 1px;
+            border-collapse: collapse;
+        }
+        tbody>tr>td,thead>tr>th{
+            border: solid gray 1px;
+        }
+        tfoot>tr>td{
+            border: solid gray 1px;
+        }
+        .g1,.g1~tr{
+            background-color: yellow;
+        }
+        .g2,.g2~tr{
+            background-color: yellowgreen !important;
+        }
+
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>组名</th>
+                <th>姓名</th>
+                <th colspan="2">年龄</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="g1">
+                <td rowspan="6">第一组</td>
+                <td>Jack</td>
+                <td colspan="2">12</td>
+            </tr>
+            <tr>
+                
+                <td>Peter</td>
+                <td colspan="2">22</td>
+            </tr>
+            <tr>
+                
+                <td>Mary</td>
+                <td colspan="2">23</td>
+            </tr>
+            <tr>
+               
+                <td>Smith</td>
+                <td colspan="2">23</td>
+            </tr>
+            <tr>
+              
+                <td>Tom</td>
+                <td colspan="2">20</td>
+            </tr>
+            <tr>
+             
+                <td>Black</td>
+                <td colspan="2">22</td>
+            </tr>
+            <tr class="g2">
+                <td rowspan="8">第二组</td>
+                <td>Green</td>
+                <td colspan="2">21</td>
+            </tr>
+            <tr>
+               
+                <td>Brown</td>
+                <td colspan="2">28</td>
+            </tr>
+            <tr>
+                
+                <td>White</td>
+                <td colspan="2">22</td>
+            </tr>
+            <tr>
+                
+                <td>Will</td>
+                <td colspan="2">22</td>
+            </tr>
+            <tr>
+                
+                <td>David</td>
+                <td colspan="2">21</td>
+            </tr>
+            <tr>
+               
+                <td>John</td>
+                <td colspan="2">23</td>
+            </tr>
+            <tr>
+                
+                <td>Smith</td>
+                <td colspan="2">21</td>
+            </tr>
+            <tr>
+               
+                <td>Maria</td>
+                <td colspan="2">43</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>人总</td>
+                <td>14</td>
+                <td>平均年龄</td>
+                <td>26</td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>

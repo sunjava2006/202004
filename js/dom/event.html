@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function init(){
+            var btn1 = document.querySelector('#btn1');
+   
+            btn1.addEventListener("click", function(event){
+
+                console.log("button !!!!!!!!!");
+                console.log(event.currentTarget);
+
+            }, false);// 是否在bubber区处理(false)/捕获区处理(true)。
+
+
+            document.addEventListener("click",function(e){
+                console.log("document------");
+                console.log(event.currentTarget);
+
+                document.removeEventListener("click", arguments.callee, false );
+
+            }, false);
+        }
+        
+        
+
+
+    </script>
+</head>
+<body onload="init();">
+    <button id="btn1">click</button>
+
+    
+</body>
+</html>

@@ -1,0 +1,6 @@
+body{
+   
+    background: yellowgreen repeat url('rose.jpg') fixed;
+    /* background-image: url('rose.jpg');
+    background-repeat: no-repeat; */
+}

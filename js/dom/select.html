@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <select name="education" id="edu" multiple>
+        <option value="1" selected>小学</option>
+        <option value="2" >中学</option>
+        <option value="3" selected>大学</option>
+    </select>
+
+    <script>
+
+        var select = document.querySelector("#edu");
+
+        var opts = document.querySelectorAll("#edu>option");
+        for(var i=0;i<opts.length;i++){
+            var opt = opts[i];
+            if(opt.selected){
+                console.log(opt.value + "选中")
+            }else{
+                console.log(opt.value + "没选中")
+            }
+        }
+
+    </script>
+
+
+</body>
+</html>

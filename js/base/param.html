@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*********************************
+         types = [{name:"头条", type:"top"},
+                 {name:"二条", type:"top2"},
+                 {name:"军事", type:"junshi"}];
+
+        var value = '军事';
+        var type ;
+        for(i in types){
+            var item = types[i];
+            if(item.name==value){
+                type = item.type;
+                break;
+            }
+        }
+        **********************************/
+        var value= "头条2";
+        
+        types={"军事":"junshi", "头条":"top"};
+   
+        var type = types[value];
+
+        if(type){
+            alert("wx.request................");
+        }else{
+            alert('没有输入类型的新闻');
+        }
+
+
+
+       
+
+
+
+
+    </script>
+</body>
+</html>

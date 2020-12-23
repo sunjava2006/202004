@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function captureThreeNumbers(str){
+            var m =  str.match(/\d{3}/g);
+            console.log(m);
+            if(m){
+                return m[0];
+            }else{
+                return false;
+            }
+        }
+       
+       s= captureThreeNumbers('123456abc789');
+       console.log(s);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red{
+            color: red;
+        }
+        .blue{
+            color: blue;
+        }
+
+    </style>
+</head>
+<body>
+    <ul>
+        <li>a</li>
+        <li>b</li>
+        <li>c</li>
+        <li>d</li>
+        <li>e</li>
+    </ul>
+
+
+    <button onclick="del();">删除C以上</button>
+
+    <button onclick="insert();">e插入到d前面</button>
+
+    <button onclick="add();">添加新元素</button>
+
+    <script>
+
+        function del(){
+            var lic = document.querySelector("li:nth-child(3)");
+            var pre = null;
+            while( pre = lic.previousElementSibling){
+                pre.remove();
+            }; 
+        }
+
+        function insert(){
+            // 取元素
+            var lie = document.querySelector("li:last-child");
+
+            // 取前一个元素
+            var pre = lie.previousElementSibling;
+
+            // 插入节点的方法"父节点.insertBefore(插入的，被插入的)"
+            pre.parentElement.insertBefore(lie, pre); 
+        }
+
+        function add(){
+            //  创建一个新元素li
+            var newLi = document.createElement("li");
+
+            //  创建一个文本
+            var txt = document.createTextNode("f");
+
+            //  找到ul元素
+            var ul = document.querySelector('ul');
+
+            //  添加子元素
+            ul.append(newLi);
+            newLi.appendChild(txt);
+
+            // ==============================================
+            newLi.setAttribute("name", "newItem");
+            newLi.setAttribute("class", "red");  // 新加
+            newLi.setAttribute("class", "blue"); // 修改
+            newLi.removeAttribute("name");
+
+           if( newLi.hasAttribute("class")){
+               alert("have");
+           }
+
+
+        }
+
+    </script>
+
+
+</body>
+</html>

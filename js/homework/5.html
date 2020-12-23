@@ -1,0 +1,15 @@
+<html>
+<head>
+	<script type="text/javascript">
+	   function writeIt (value) { document.myfm.first_text.value=value;}
+	</script>
+</head>
+<body bgcolor="#ffffff">
+	<form name="myfm" action="http://localhost:8800" method="get" >
+	 <input type="text" name="first_text">
+	 <input type="text" name="second_text" onchange="writeIt(value)">
+	 <!-- <input type="file" name="photo"> -->
+	 <input type="submit" value="发送">
+	</form>
+</body>
+</html>

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./node_modules/jquery/dist/jquery.js"></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <script src="./node_modules/axios/dist/axios.js"></script>
+    <script src="./js/fruit.js"></script>
+
+    <style>
+        @import url("./node_modules/bootstrap/dist/css/bootstrap.css");
+        @import url("./node_modules/bootstrap/dist/css/bootstrap-theme.css");
+        
+    </style>
+</head>
+<body>
+    <div class="container" id="app">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                  <h3 class="panel-title">添加商品分类</h3>
+            </div>
+            <div class="panel-body">
+                  
+                  <div class="input-group">
+                      <input type="text" class="form-control" id="exampleInputAmount" placeholder="商品分类名" v-model="newTypeName">
+                      <span class="input-group-btn">
+                          <button type="button" class="btn btn-warning"  v-on:click="addType"> <span class="glyphicon glyphicon-plus"></span> 添加</button>
+                      </span>
+                  </div>
+                  
+            </div>
+      </div>
+
+      
+      <div class="panel panel-primary">
+            <div class="panel-heading">
+                  <h3 class="panel-title">类型列表</h3>
+            </div>
+            <div class="panel-body">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            
+                            <th>序号</th>
+                            <th>商品类型名</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="(item, index) in typeList" :key="index">
+                            <td>{{index+1}}</td>
+                            <td>{{item.TYPE}}</td>
+                            <td>
+                                <button v-bind:id="item.ID" v-on:click="modifyType" data-toggle="modal" href='#modal-id'>修改</button>
+                                <button v-bind:id="item.ID" v-on:click="delType" data-toggle="modal" href='#modal-confirm'>删除</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="panel-footer">
+                总类型数：{{totalCount}},共{{totalPage}}页，第{{currentPage}}页
+               
+                <div class="btn-group pull-right">
+                   
+                    <button type="button" class="btn btn-primary" v-if="this.currentPage>1" v-on:click="previousPage"><span class="glyphicon glyphicon-chevron-left"/>上一页</button>
+                    <button type="button" class="btn btn-primary" v-if="this.currentPage<this.totalPage" v-on:click="nextPage">下一页<span class="glyphicon glyphicon-chevron-right"/></button>
+                   
+                </div>
+                
+                
+                <br><br>
+            </div>
+      </div>
+      
+      
+      
+      
+
+    
+   
+    <div class="modal fade" id="modal-id">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">修改类型名</h4>
+                </div>
+                <div class="modal-body">
+                    
+                    <div class="input-group">
+                        <div class="input-group-addon">类型：</div>
+                        <input type="text" class="form-control" id="exampleInputAmount" v-model="modifyTypeName">
+                    </div>
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" v-on:click="toModify" >保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="modal-confirm">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title"><label class="glyphicon glyphicon-alert"></label></h4>
+                </div>
+                <div class="modal-body">
+                    
+                    确认删除这个类型吗？
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal" v-on:click="toDel" >确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+    </div>
+    
+    <script>
+        var app = new Vue({
+           el:"#app",
+           data:{
+                newTypeName:null,
+                typeList:[],
+                currentTypeID:null,
+                modifyTypeName:null,
+                currentPage:1,
+                totalCount:0,
+                totalPage:1,
+                size:3
+           },
+           methods:{
+               addType(){
+                   axios.post(host + "/addType", "type="+this.newTypeName)
+                   .then(res => {
+                      
+                       if(res.data=="ok"){
+                          this.listTypes(1, 3);
+                       }else if(res.data == "repeat"){
+                           alert("类型已经存在。");
+                       }
+                   })
+                   .catch(err => {
+                       console.error(err); 
+                   })
+               },
+               listTypes(page, size){
+                   console.log("----------listTypes-------------")
+                //    axios.defaults.withCredentials = true;
+                   axios.post(host+"/listTypes","page="+page+"&size="+size)
+                   .then(res => {
+                       console.log(res);
+                    //    if(res.headers["session-status"]=="invalide"){
+                    //        console.log("will to localhost:5500")
+                    //        window.open("http://localhost:5500", "_top");
+                    //    }
+                       this.typeList=res.data.typeList;
+                       this.currentPage = res.data.currentPage;
+                       this.totalCount = res.data.totalCount;
+                       this.totalPage = res.data.totalPage;
+                   })
+                   .catch(err => {
+                       console.error(err); 
+                   })
+               },
+               modifyType(e){
+                   this.currentTypeID = e.target.id;
+
+               },
+               toModify(){
+                    // alert(this.modifyTypeName+this.currentTypeID)
+                    axios.get(host+"/modifyType",{params:{type:this.modifyTypeName, id:this.currentTypeID}})
+                    .then(res => {
+                         if(res.data=="repeat"){
+                             alert("类型名已经存在。")
+                         }
+                         else if(res.data=="ok"){
+                             this.listTypes(this.currentPage, this.size);
+                         }else{
+                            this.listTypes(this.currentPage, this.size);
+                            alert("修改失败");
+                         }
+                            
+                         
+
+                    })
+                    .catch(err => {
+                        console.error(err); 
+                    })
+
+  
+               },
+               delType(e){
+                    this.currentTypeID = e.target.id;
+               },
+               toDel(){
+                    axios.get(host+"/delType",{params:{id:this.currentTypeID}})
+                    .then(res => {
+                        if(res.data=="ok"){
+                            this.listTypes(this.currentPage, this.size);
+                        }else if(res.data=="used"){
+                            alert("该类型已经被使用，不能删除。");
+                        }
+
+                    })
+                    .catch(err => {
+                        console.error(err); 
+                    })
+               },
+
+               previousPage(){
+                   this.currentPage -= 1;
+                   this.listTypes(this.currentPage, 3)
+               },
+               nextPage(){
+                   this.currentPage += 1;
+                   this.listTypes(this.currentPage, 3)
+               }
+           },
+           // Vue 的生命周期方法。在创建对象时加载。
+           created() {
+               console.log("--------created----------")
+              
+               this.listTypes(this.currentPage, 3);
+              
+           },
+        });
+
+    </script>
+    
+</body>
+</html>

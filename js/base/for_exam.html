@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        var a = [10, 20, 30, 40,50, 70];
+
+        // 从数组中，找给出的元素，返回索引。找不到返回-1。
+        function indexOf(arr, item){
+            var at = -1;
+            for(var i in arr){
+                if(arr[i] == item){
+                    at = i;
+                    break;
+                }
+            }
+            return at;
+        }
+
+        var idx = indexOf(a, 30);
+        console.log(idx);
+
+        // 从数组中，找给出的元素，返回true。找不到返回false。
+        function lookup(arr, item){
+            var result = false;
+            for(var i of arr){
+                if(i == item){
+                    result = true;
+                    break;
+                }
+            }
+            return result;
+        }
+
+        console.log(lookup(a, 70));
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @-webkit-keyframes kframeA{
+            0%{
+                top: 0;
+                left: 0;
+                transform: rotate(0deg);
+            }
+            50%{
+                top: 500px;
+                left: 500px;
+                transform: rotate(1800deg);
+            }
+            100%{
+                top: 2000px;
+                left: 1000px;
+                transform: rotate(3600deg);
+            }
+        }
+        @-webkit-keyframes kframeB{
+            0%{
+                top: 2000px;
+                left: 1000px;
+                transform: rotate(3600deg);
+            }
+            50%{
+                top: 500px;
+                left: 1500px;
+                transform: rotate(1800deg);
+            }
+            100%{
+                top: 0px;
+                left: 2000px;
+                transform: rotate(0deg);
+            }
+        }
+
+        #ball{
+            position: absolute;
+            animation: kframeA 10s linear  ,kframeB 10s linear 10s;
+        }
+    </style>
+</head>
+<body>
+    <img src="../ball.png" alt="" id="ball">
+    <button>cancel</button>
+    <script>
+        var img = document.querySelector("img");
+        img.addEventListener('animationend',function(e){
+           console.log(e.animationName);
+        //    e.target.cancelAnimationFrame();
+        });
+
+        var btn = document.querySelector('button');
+        btn.addEventListener('click',function(e){
+         
+            var as = img.getAnimations();
+            for(var i=0;i<as.length;i++){
+                if(as[i].playState=="running"){
+                    as[i].cancel();
+                    console.log(as[i].animationName)
+                    break;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

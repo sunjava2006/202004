@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function count(start, end) {
+            console.log(start); // 立即输出第一个参数
+
+            //  执行定时器任务，timer1是定时器对象
+            var timer1 = setInterval(function(){
+                if(start<end){
+                    console.log(++start);
+                }else{
+                    console.log("stop");
+                    clearInterval(timer1); // 停止指定定时器的定时任务
+                }
+            }, 100);
+            console.log("after---------setInterval")
+            // 返回的对象中定义了一个方法
+            return {cancel:function(){
+                clearInterval(timer1); // 停止定时器的方法
+            }};
+            
+        }
+
+        count(1,10).cancel();
+    </script>
+</body>
+</html>

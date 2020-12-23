@@ -1,0 +1,4 @@
+
+<input type="text" value="{{userName}}" bindinput="mointer"/>
+<input type="text" password="true" model:value="{{pwd}}" ></input>
+<slider min="0" max="100" model:value="{{value}}"></slider>

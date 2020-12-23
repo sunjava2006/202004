@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./node_modules/jquery/dist/jquery.js"></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <script src="./node_modules/axios/dist/axios.js"></script>
+    <script src="./js/fruit.js"></script>
+
+    <style>
+        @import url("./node_modules/bootstrap/dist/css/bootstrap.css");
+        @import url("./node_modules/bootstrap/dist/css/bootstrap-theme.css");
+        
+    </style>
+</head>
+<body>
+    <div id="app">
+        <input type="file" ref="photo">
+        <input type="text" ref="name">
+        <button v-on:click="publish">upload</button>
+    </div>
+
+    <script>
+        var app = new Vue({
+            el:'#app',
+            data:{
+
+            },
+            methods:{
+                publish(e){
+                    var form = new window.FormData();
+                    var photo = this.$refs.photo.files[0];
+                    console.log(photo)
+                    var name = this.$refs.name.value;
+                    form.append("photo", photo);
+                    form.append('name', name);
+                   axios.post(host+"/upload",form, {'Content-Type':'multipart/form-data'})
+                   .then(res => {
+                       console.log(res)
+                   })
+                   .catch(err => {
+                       console.error(err); 
+                   })
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 移除数组 arr 中的所有值与 item 相等的元素，直接在给定的 arr 数组上进行操作，并将结果返回
+        arr = [1, 2, 2, 3, 4, 2, 2];
+        item = 2;
+
+        for(var i=arr.length-1; i>=0; i--){
+            if(arr[i]== item ){
+                arr.splice(i,1);
+            }
+        }
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            #li2{
+                background-color: yellowgreen;
+                font-style: italic;
+            }
+           
+        </style>
+    </head>
+    <body>
+        <button onclick="window.open('http://www.qq.com','_top')">open</button>
+       <ul>
+           <li id="li1">Java</li>
+           <li id="li2" class="li3">Python</li>
+           <li class="li3">C++</li>
+           <li name="li4">C--</li>
+           <li name="li5">C</li>
+       </ul>
+
+        <script>
+            var li1 = document.querySelector('#li1');
+            li1.style.color='red';
+            li1.style.backgroundColor='yellow';
+            li1.style.fontStyle='italic';
+
+            document.querySelector('.li3').style.fontWeight='bold';
+            document.querySelector('li[name]').style.color="blue";
+            document.querySelector('li[name=li4]').style.fontSize='5em';
+
+           //------------------------------------------------
+
+        //    var lis = document.querySelectorAll("li");
+        //    for(var i=0; i<lis.length; i++){
+        //        lis[i].style.color="gray";
+        //    }
+
+
+           //============================================
+        //    document.getElementById("li1").style.backgroundColor="";
+
+        //    var lis = document.getElementsByClassName("li3");
+        //    for(var i=0;i<lis.length;i++){
+        //        lis[i].style.color='red';
+        //    }
+
+        //    var lis = document.getElementsByName("li4");
+        //    for(var i=0;i<lis.length;i++){
+        //        lis[i].style.color='brown';
+        //    }
+
+
+            var lis = document.querySelectorAll("li[name*=li]");
+
+
+        </script>
+    </body>
+</html>

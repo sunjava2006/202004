@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #page{
+            display: flex;
+            align-items: center;
+        }
+        ul{
+            width: 50px;
+            height: 200px;
+            border: solid black 1px;
+            padding-left: 0;
+            text-indent: 20px;
+            
+        }
+        .selected{
+            background-color: yellow;
+
+        }
+    </style>
+</head>
+<body>
+    <div id="page">
+        <ul id="left">
+            <li onclick="selectThis(this)">a</li>
+            <li onclick="selectThis(this)">b</li>
+            <li onclick="selectThis(this)">c</li>
+            <li onclick="selectThis(this)">d</li>
+            <li onclick="selectThis(this)">e</li>
+        </ul>
+        <div style="display: flex; flex-direction: column;">
+            <button onclick="toRight()"> >> </button>
+            <button onclick="toLeft()"> << </button>
+
+        </div>
+       
+        
+        <ul id="right">
+            <li onclick="selectThis(this)">f</li>
+            <li onclick="selectThis(this)">g</li>
+            <li onclick="selectThis(this)">h</li>
+        </ul>
+    </div>
+    <script>
+        function selectThis(current){
+            current.className="selected";
+        }
+
+        function toRight(){
+            var left = document.querySelector('#left');
+            var leftChildern = left.children;
+            var right = document.querySelector('#right');
+            for(var i=leftChildern.length-1; i>=0; i--){
+                var li = leftChildern[i];
+                if(li.className){
+                    right.append(li);
+                }
+            }
+            clear();
+        }
+
+        function toLeft(){
+            var right = document.querySelector('#right');
+            var rightChildern = right.children;
+            var left = document.querySelector('#left');
+            for(var i=rightChildern.length-1; i>=0; i--){
+                var li = rightChildern[i];
+                if(li.className){
+                    left.append(li);
+                }
+            }
+            clear();
+        }
+
+        function clear(){
+            setTimeout(() => {
+                var list = document.querySelectorAll("li[class=selected]");
+                for(var i=0;i<list.length;i++){
+                    list[i].className="";
+                }
+            }, 2000);
+           
+        }
+
+
+
+
+    </script>
+
+    <h1>题目：</h1>
+    <p>从左侧列出中选中一个列表元素，点击“向右移动”按钮时，将这个列表元素移动到右侧列表中。反之亦然。</p>
+</body>
+</html>
