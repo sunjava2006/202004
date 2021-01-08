@@ -1,0 +1,38 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/login/login",
+        "pages/regist/regist",
+        
+        "pages/carts/carts",
+       
+        "pages/my/my"
+        
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#f44",
+        "navigationBarTitleText": "金苹果小店",
+        "navigationBarTextStyle": "black"
+    },
+    "style": "v2",
+    "sitemapLocation": "sitemap.json",
+    "tabBar": {
+        "color": "#aaa",
+        "selectedColor": "#f44",
+        "list": [
+            {
+                "text": "水果摊",
+                "pagePath": "pages/index/index"
+            },
+            {
+                "text": "购物车",
+                "pagePath": "pages/carts/carts"
+            },
+            {
+                "text": "我的",
+                "pagePath": "pages/my/my"
+            }
+        ]
+    }
+}

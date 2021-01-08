@@ -116,3 +116,48 @@ class Fruits(DbTemplate):
 
     def total_page(self, total_count, size):
         return math.ceil(total_count/size)
+
+    def list_by_type_id(self,type_id, page, size=10):
+        sql = "select * from("\
+              "select a.* , rownum ro from(select * from fruits where type_id=:id order by id desc)a "\
+              "where rownum <=:mx)where ro >:mi"
+        return self.find(sql, mx=page*size, mi=(page-1)*size, id=type_id)
+
+    def count_by_type_id(self, type_id):
+        sql = 'select count(*) count from fruits where type_id=:id'
+        return self.find(sql, id=type_id)[0].get("COUNT")
+
+class Users(DbTemplate):
+    def __init__(self):
+        super().__init__()
+        # super(Users, self).__init__()
+        # DbTemplate.__init__(self)
+
+    def get_id(self):
+        sql = 'select seq_users.nextval id from dual'
+        return self.find(sql)[0].get('ID')
+
+    def add_user(self,id, user_name, pwd, phone_no):
+        sql = 'insert into users(id, user_name, pwd, status, phone) values (:id, :user_name, :pwd, 1, :phone_no)'
+        return self.save_update(sql, id=id, user_name=user_name, pwd=pwd, phone_no=phone_no)
+
+    def add_address(self,id, address):
+        sql = 'insert into user_addresses(id, user_id, address) values (seq_user_addresses.nextval, :id, :addr)'
+        return self.save_update(sql, id=id, addr=address)
+
+    def regist(self, user_name, pwd, phone_no, address):
+        id = self.get_id()
+        self.add_user(id, user_name, pwd, phone_no)
+        self.add_address(id, address)
+
+    def login(self, user_name, pwd):
+        sql = 'select * from users where user_name=:user_name and pwd=:pwd'
+        data = self.find(sql, user_name=user_name, pwd=pwd)
+        if data:
+            return data[0]
+        else:
+            return None
+
+
+
+

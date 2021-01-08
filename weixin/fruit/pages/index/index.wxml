@@ -1,0 +1,78 @@
+<swiper class="ad" indicator-dots="true" circular="true" autoplay="true" indicator-active-color="white">
+    <swiper-item>
+        <image src="/imgs/1.jpg"></image>
+    </swiper-item>
+    <swiper-item>
+        <image src="/imgs/2.jpg"></image>
+    </swiper-item>
+    <swiper-item>
+        <image src="/imgs/3.jpg"></image>
+    </swiper-item>
+</swiper>
+
+<view class="fruit-list">
+    
+        <swiper class="fruit-type-list" vertical="true" display-multiple-items="5" current="{{currentTypeIndex}}"
+            bindchange="slideSelectType">
+            <swiper-item wx:for="{{fruitTypeList}}" wx:key="index" wx:item="item" id="{{index}}"
+                style="background:{{colorList[index]}}" item-id="{{index}}" bindtap="tapSelectType">
+                <view class="{{currentTypeIndex==index? 'bold':''}}">{{item.TYPE}}</view>
+            </swiper-item>
+        </swiper>
+
+
+        <scroll-view class="fruit-detail-list" scroll-y="true" bindscrolltolower="nextPage" >
+            <view class="list">
+                <view wx:for="{{fruitList}}" class="fruit-detail" wx:key="index">
+                    <view class="img-view">
+                        <image src="{{'http://wr.free.idcfengye.com/static/'+ item.PHOTO }}"></image>
+                    </view>
+                    <view class="fruit-info">
+                        <view class="itile">
+                            <view class="bold">【{{item.NAME}}】</view>
+                            <image src="/imgs/cart.png" class="carts-img" id="{{index}}" bindtap="addToCarts"></image>
+                        </view>
+                        <view>产地：{{item.ORIGION}}</view>
+                        <view>单价：{{item.PRICE}}/{{item.UNIT}}</view>
+                    </view>
+
+                </view>
+
+
+            </view>
+        </scroll-view>
+ 
+</view>
+
+<view class="modal {{modalClass}}">
+    <view class="carts">
+        
+        <image src="{{'http://wr.free.idcfengye.com/static/'+currentSelectedFruit.PHOTO}}" class="image"></image>
+        <!-- <image src="/imgs/3.jpg" class="image"></image> -->
+        <view>
+            【{{currentSelectedFruit.NAME}}】
+        </view>
+        <view>
+            产地：{{currentSelectedFruit.ORIGION}}
+        </view>
+        <view>
+            单价：{{currentSelectedFruit.PRICE}}元/{{currentSelectedFruit.UNIT}}
+        </view>
+        <view class="amount">
+            总价：{{amount}}元  
+            <view style="width:200rpx;">
+                <image src="/imgs/minus_button.png" class="btn" bindtap="minusCount"></image> 
+                {{count}}
+                <image src="/imgs/add_button.png" class="btn" bindtap="addCount"></image>
+            </view>
+            
+        </view>
+        <view class="confirm">
+            <image src="/imgs/cancel-button.png" class="btn" bindtap="cancelAddToCarts"/>
+            <image src="/imgs/confirm-button.png" class="btn" bindtap="confirmAddToCarts"/>
+        </view>
+          
+
+    </view>
+
+</view>

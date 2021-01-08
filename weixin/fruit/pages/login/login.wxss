@@ -1,0 +1,45 @@
+.container{
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(55, 55, 55, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+.modal{
+    width:500rpx;
+    height: 700rpx;
+    background-color: white;
+    border-radius: 10rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.modal input{
+    border: gray solid 1rpx;
+    border-radius: 10rpx;
+    width: 400rpx;
+    height: 80rpx;
+    text-align: center;
+}
+.btn{
+    width: 200rpx;
+    height: 80rpx;
+    border: solid gray 1rpx;
+    border-radius: 10rpx;
+    box-shadow: gray 5rpx 5rpx 5rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.btn image{
+    width: 60rpx;
+    height: 60rpx;
+}
+.btn-group{
+    display: flex;
+}

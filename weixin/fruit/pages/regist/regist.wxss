@@ -1,0 +1,46 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.container>view{
+    width: 500rpx;
+    /* border: solid seagreen 1rpx; */
+}
+
+.container>view>input{
+    border: solid gray 1rpx;
+    border-radius: 10rpx;
+    height: 80rpx;
+    text-align: center;
+}
+.container>view>input:focus{
+    border: skyblue solid 1rpx;
+}
+.btn{
+    width: 200rpx;
+    height: 80rpx;
+    border: gray solid 1rpx;
+    border-radius: 10rpx;
+    line-height: 80rpx;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: gray 5rpx 5rpx 5rpx;
+    font-weight: bold;
+}
+
+.btn-img{
+    width: 50rpx;
+    height: 50rpx;
+    
+}
+.btns{
+    display: flex;
+    justify-content: space-between;
+}

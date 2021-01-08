@@ -1,0 +1,34 @@
+<view class="container">
+
+    <view>
+        <view>用户名</view>
+        <input type="text" model:value="{{userName}}"/>
+    </view>
+    <view>
+        <view>密码</view>
+        <input type="text" model:value="{{pwd}}"/>
+    </view>
+    <view>
+        <view>确认密码</view>
+        <input type="text" model:value="{{pwd2}}"/>
+    </view>
+    <view>
+        <view>手机号</view>
+        <input type="text" model:value="{{phoneNO}}"/>
+    </view>
+    <view>
+        <view>收货地址</view>
+        <input type="text" model:value="{{address}}"/>
+    </view>
+
+    <view class="btns">
+        <view class="btn" bindtap="cancel">
+            <image src="/imgs/cancel-button.png" class="btn-img"></image>取消
+        </view>
+        <view class="btn" bindtap="regist">
+            <image src="/imgs/confirm-button.png" class="btn-img"></image>注册
+        </view>
+        
+    </view>
+
+</view>

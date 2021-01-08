@@ -1,7 +1,8 @@
 from flask import Flask, request, make_response, jsonify, render_template, session, redirect
-from db.dbaccess import Admin, Types, Fruits
+from db.dbaccess import Admin, Types, Fruits, Users
 import random
 import datetime
+import json
 from flask_cors import CORS
 
 
@@ -15,10 +16,14 @@ app.permanent_session_lifetime = datetime.timedelta(minutes=60)
 
 @app.before_request
 def before():
-    if "login" not in request.path:
-        if not session.get("user_info"):
-            response = make_response("", 200, {"session-status": "invalide"})
-            return response
+    print(request.headers)
+    print("*" * 100)
+    host = request.headers.get("Host")
+    if host != 'wr.free.idcfengye.com':
+        if "login" not in request.path:
+            if not session.get("user_info"):
+                response = make_response("", 200, {"session-status": "invalide"})
+                return response
 
 @app.after_request
 def after(res):
@@ -45,7 +50,7 @@ def login():
         print(session)
 
     if user:
-        return jsonify({"login": "ok"})
+        return jsonify({"login": "ok", "userInfo": user})
     else:
         return jsonify({"login": "nook"}), 200  # 内容，状态码，响应头
 
@@ -181,6 +186,45 @@ def serarchFruit():
 
     data = {"fruitList": fruit_list, "totalCount": total_count, "totalPage": total_page, "currentPage": page}
     return jsonify(data), 200
+
+@app.route("/listFruitByType", methods=["POST", "GET"])
+def list_fruit_by_type():
+    page = int(request.values.get("page"))
+    type_id = int(request.values.get("typeID"))
+    fruits = Fruits()
+    fruit_list = fruits.list_by_type_id(type_id, page)
+    total_count = fruits.count_by_type_id(type_id)
+    total_page = fruits.total_page(total_count, 10)
+    fruits.close()
+    data = {"fruitList": fruit_list, "totalCount": total_count, "totalPage": total_page, "currentPage": page}
+    return jsonify(data), 200
+
+@app.route("/userRegist", methods=["POST", "GET"])
+def userRegist():
+    print("--------------userRegist---------------")
+    data = request.get_data(as_text=True)  # 收到的数据是2进制数据。转化为字符串。
+    data = json.loads(data)  # json.loads()方法，将字符串转化为dict对象。
+    print(type(data))
+    users = Users()
+    users.regist(data.get("userName"), data.get("pwd"), data.get("phoneNO"), data.get("address"))
+    users.close()
+    return jsonify({"regist": "ok", "userInfo": data})
+
+@app.route("/userLogin", methods=["POST", "GET"])
+def userLogin():
+    data = request.get_data(as_text=True)
+    data = json.loads(data)
+    user_name = data.get('userName')
+    pwd = data.get('pwd')
+
+    users = Users()
+    user = users.login(user_name, pwd)
+    users.close()
+    if user:
+        return jsonify({"login": "ok", "userInfo": user})
+    else:
+        return jsonify({"login": "nook"})
+
 
 
 if __name__ == "__main__":

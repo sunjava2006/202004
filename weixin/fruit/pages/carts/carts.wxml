@@ -1,0 +1,40 @@
+<view class="container">
+    
+    <view class="list">
+        <view class="fruit" wx:for="{{carts}}" wx:key="index">
+
+            <image src="{{'http://wr.free.idcfengye.com/static/'+item.fruit.PHOTO}}" class="img"></image>
+            <view class="info">
+                <view class="col">
+                    <view>【{{item.fruit.NAME}}】</view>
+                    <view>单价:{{item.fruit.PRICE}}元/{{item.fruit.UNIT}}</view>
+                </view>
+                <view class="col" >
+                    <view>
+                        <image class="btn" src="/imgs/cancel-button.png" id="{{index}}" bindtap="delFromCarts"></image>
+                    </view>
+                    <view class="btns">
+                        <image class="btn" src="/imgs/minus_button.png" id="{{index}}" bindtap="minusCount"></image>
+                        {{item.count}}
+                        <image class="btn" src="/imgs/add_button.png" id="{{index}}" bindtap="addCount"></image>
+                    </view>
+
+                    <view>总价{{item.fruit.PRICE * item.count}}</view>
+                </view>
+
+            </view>
+
+        </view>
+        <!-- end for-->
+
+        <view class="sum" bindtap="toPay">
+            <view>总金额：{{amount}}元</view>
+            <view class="pay">
+                结算<image src="/imgs/pay.png" class="btn"></image>
+            </view>
+            
+        </view>
+
+
+    </view>
+</view>

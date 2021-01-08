@@ -1,0 +1,20 @@
+<view class="container">
+
+    <view class="modal">
+        用户名：
+        <input type="text" model:value="{{userName}}"/>
+        密码：
+        <input type="password" model:value="{{password}}"/>
+        <view class="btn-group">
+            <view class="btn" bindtap="openRegist">
+                <image src="/imgs/regist.png" ></image>注册
+            </view>
+            <view class="btn" bindtap="toLogin">
+                <image src="/imgs/login.png" ></image>登录
+            </view>
+
+        </view>
+        
+    </view>
+
+</view>
