@@ -32,6 +32,7 @@ def receive_data():
 
         # 返回一个消息，给客户端。
         msg = input("输入返回的消息：")
+        msg += '\n'
         data = msg.encode("utf-8")
         cli_socket.send(data)
 
