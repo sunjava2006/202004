@@ -1,4 +1,4 @@
-package com.thzhima.advance.jdbc;
+package com.thzhima.db2xml.jdbc;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

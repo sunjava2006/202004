@@ -16,7 +16,7 @@ public class VectorTest {
 		Thread t = new Thread() {
 			public void run() {
 			
-				for(int i=0;i<20000;i++) {
+				for(int i=0;i<2000;i++) {
 					list.add(i);
 					System.out.println("------------------");
 				}
@@ -27,7 +27,7 @@ public class VectorTest {
 		Thread t2 = new Thread() {
 			public void run() {
 			
-				for(int i=0;i<20000;i++) {
+				for(int i=0;i<2000;i++) {
 					list.add(i);
 					System.out.println("====================");
 				}
