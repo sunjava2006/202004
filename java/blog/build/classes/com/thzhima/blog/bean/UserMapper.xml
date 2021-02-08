@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thzhima.blog.bean.User">
+   <resultMap type="User" id="UserMapper">
+       <id column="user_id" property="userID"/>
+       <result column="reg_name" property="regName"/>
+       <result column="pwd" property="PWD"/>
+       <result column="email" property="email"/>
+       <result column="question" property="question"/>
+       <result column="answer" property="answer"/>
+       <association property="blog" column="user_id" javaType="Blog" select="com.thzhima.blog.bean.Blog.select_blog">
+       </association>
+   </resultMap>
+   
+    <resultMap type="User" id="UserMapper2">
+       <id column="user_id" property="userID"/>
+       <result column="reg_name" property="regName"/>
+       <result column="pwd" property="PWD"/>
+       <result column="email" property="email"/>
+       <result column="question" property="question"/>
+       <result column="answer" property="answer"/>
+   </resultMap>
+   
+   
+  
+   <insert id="addUser" parameterType="User">
+       insert into reg_user(user_id, reg_name, pwd, email, question, answer) 
+       values (seq_reg_user.nextval, #{regName}, #{PWD}, #{email}, #{question}, #{answer})
+   </insert>
+   
+   <select id="select_user" parameterType="User" resultMap="UserMapper2">
+       select * from reg_user where user_id=#{id}
+
+   </select>
+   <select id="select" parameterType="User" resultMap="UserMapper">
+       select * from reg_user 
+
+       <where>
+         <choose>
+         	<when test="userID != null">
+         	   user_id=#{userID}
+         	</when> 
+         	
+         	<otherwise>
+         	    <if test="regName!=null">
+         	        and reg_name=#{regName}
+         	    </if>
+         	    <if test="PWD != null">
+         	        and pwd = #{PWD}
+         	    </if>
+         	    <if test="email != null">
+         	        and email=#{email}
+         	    </if>
+         	    <if test="question != null">
+         	        and question = #{question}
+         	    </if>
+         	    <if test="answer!= null">
+         	       and answer = #{answer}
+         	    </if>
+         	
+         	</otherwise>
+              
+         </choose>
+           
+           
+       </where>
+   </select>
+   
+   <select id="user_count" resultType="int">
+       select count(*) from reg_user
+   </select>
+   
+   
+   <select id="listByPage" resultType="map" parameterType="map">
+   select * from(
+        select a.*, rownum ro from reg_user a where rownum &lt;= ${page*size}  ) where ro &gt;${(page-1)*size}
+   
+   </select>
+   
+</mapper>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #page{
+            /* border: solid red 1px; */
+            width:800px;
+            height: 800px;
+            margin: auto;
+        }
+        table{
+            width: 100%;
+            border: solid gray 2px;
+        }
+    </style>
+</head>
+<body>
+    
+     <div id="page">
+         <form action="/publish" method="POST">
+            <table>
+                <tr>
+                    <td width="150">标题</td>
+                    <td>
+                        <input type="text" name="title">
+                    </td>
+                </tr>
+                <tr>
+                    <td style="line-height: 50px;">内容</td>
+                    <td>
+                        <textarea name="content" id="" cols="80" rows="40"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" >
+                        <input type="submit" value="发表" style="float:right;">
+                    </td>
+                </tr>
+ 
+          </table>
+        
+        
+        </form>
+        
+
+     </div>
+
+
+
+</body>
+</html>

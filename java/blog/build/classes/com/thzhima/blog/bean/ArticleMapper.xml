@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thzhima.blog.bean.Article">
+
+    <cache eviction="LRU" flushInterval="6000" readOnly="false"></cache>
+
+
+   <resultMap type="Article" id="ArticleMapper">
+       <id column="article_id" property="articleID"/>
+       <result column="blog_id" property="blogID"/>
+       <result column="title" property="title"/>
+       <result column="content" property="content"/>
+       <collection property="reviews" column="article_id" javaType="List" 
+           select="com.thzhima.blog.bean.Review.selectByArticle">
+       </collection>
+   </resultMap>
+   
+   <select id="articleListByBlogID" parameterType="map" resultMap="ArticleMapper">
+   
+select * from (
+select a.* ,rownum ro from (select * from article where article.blog_id=#{blogID} order by article_id desc)a where rownum &lt;=${page*size})
+where ro &gt; ${(page-1)*size}
+   </select>
+   
+   
+   <select id="selectByID" parameterType="int" resultMap="ArticleMapper" useCache="false">
+       select * from article where article_id=#{id}
+   </select>
+   
+   <insert id="add" parameterType="Article">
+       <selectKey keyColumn="article_id" keyProperty="articleID" order="BEFORE" resultType="int">
+          select seq_article.nextval from dual
+       </selectKey>
+       insert into article values (#{articleID}, #{blogID}, #{title}, #{content})
+   </insert>
+   
+   
+   <update id="update" parameterType="Article" flushCache="true">
+        update article 
+        <set>
+	        <if test="title!=null">
+	           title=#{title},
+	        </if>
+	        <if test="content!=null">
+	           content = #{content}
+	        </if>
+        </set>
+        
+        <where>
+            <choose>
+                <when test="articleID!= null">
+                    article_id=#{articleID}
+                </when>
+                <otherwise>
+                   1=2
+                </otherwise>
+            </choose>
+        </where>
+       
+   </update>
+   
+   
+</mapper>

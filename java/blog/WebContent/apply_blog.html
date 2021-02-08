@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       html, body{
+           height: 100%;
+           display: flex;
+           justify-content: center;
+           align-items: center;
+       }
+       #page{
+           width: 800px;
+           height: 600px;
+       }
+       .foot{
+           display: flex;
+           justify-content: space-evenly;
+       }
+       table{
+           width: 100%;
+       }
+
+    </style>
+</head>
+<body>
+    <div id="page">
+        <form action="/apply" method="POST" enctype="multipart/form-data">
+            <table>
+                <tr>
+                    <td>博客名</td>
+                    <td><input type="text" name="blogName"></td>
+                </tr>
+                <tr>
+                    <td>昵称</td>
+                    <td><input type="text" name="nickName"></td>
+                </tr>
+                <tr>
+                    <td>头像</td>
+                    <td><input type="file" name="photo"></td>
+                </tr>
+                <tr>
+                    <td>描述</td>
+                    <td><textarea name="description"  cols="80" rows="10"></textarea></td>
+                </tr>
+            </table>
+            
+            <div class="foot">
+                <button type="button" onclick="location='/';">取消</button>
+                <button type="button" onclick="document.forms[0].submit();">申请</button>
+            </div>
+        
+        </form>
+        
+
+    </div>
+</body>
+</html>

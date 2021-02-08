@@ -3,12 +3,11 @@ package com.thzhima.db2xml.dao;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.OutputStreamWriter;
-import java.io.PipedInputStream;
 import java.io.PipedOutputStream;
 import java.io.UnsupportedEncodingException;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -81,23 +80,25 @@ public class Dao {
 				try {
 	
 					// œ»–¥xml…Í√˜
-					writer.write("<?xml version=\"1.0\" encoding=\""+charset+"\" standalone=\"no\"?>\n");
-					writer.write("<"+tableName+"_list>\n");
-					
-					int colCount = rst.getMetaData().getColumnCount();
+					writer.write("<?xml version=\"1.0\" encoding=\""+charset+"\" standalone=\"no\"?>\r\n");
+					writer.write("<"+tableName+"_list>\r\n");
+					ResultSetMetaData md = rst.getMetaData();
+					int colCount = md.getColumnCount();
 					while(rst.next()) {
-						Thread.sleep(1000);
+//						Thread.sleep(1000);
 						out.write(++count);
-						writer.write("<" + tableName + ">\n");
+						writer.write("<record>\r\n");
 						for(int i=1; i<=colCount ;i++) {
-							String name = rst.getMetaData().getColumnName(i);
+							String name = md.getColumnName(i);
 							Object value = rst.getObject(i);
 							
-							writer.write("<"+name+">\n");
-							   writer.write("<![CDATA["+value+"]]>\n");
-							writer.write("</"+name+">\n");
+							String type = md.getColumnTypeName(i);
+							
+							writer.write("<"+name+" type=\""+type+"\">\r\n");
+							   writer.write("<![CDATA["+value+"]]>\r\n");
+							writer.write("</"+name+">\r\n");
 						}
-						writer.write("</" + tableName + ">\n");
+						writer.write("</record>\r\n");
 					}
 					
 					writer.write("</"+tableName+"_list>");

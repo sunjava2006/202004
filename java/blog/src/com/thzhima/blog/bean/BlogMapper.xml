@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thzhima.blog.bean.Blog">
+
+   <cache-ref namespace="com.thzhima.blog.bean.Article"/>
+   
+   <resultMap type="Blog" id="BlogMapper">
+   
+          <id column="blog_id" property="blogID"/>
+          <result column="blog_name" property="blogName"/>
+          <result column="nick_name" property="nickName"/>
+          <result column="photo" property="photo"/>
+          <result column="description" property="description"/>
+          <result column="user_id" property="userID" jdbcType="VARCHAR" javaType="Integer"/>
+
+   </resultMap>
+ 
+ 
+  <select id="select_blog" resultMap="BlogMapper">
+      select * from blog where user_id=#{userID}
+  </select>
+  
+  <select id="select"  parameterType="Blog" resultMap="BlogMapper">
+      select * from blog 
+      <where>
+          <choose>
+              <when test="blogID != null">
+                 blog_id=#{blogID}
+              </when>
+              <otherwise>
+                   <choose>
+                       <when test="userID != null">
+                           user_id=#{userID}
+                       </when>
+                       <otherwise>
+                           <choose>
+                               <when test="blogName!=null">
+                                   blog_name=#{blogName}
+                               </when>
+                               <otherwise>
+                                   1=2
+                               </otherwise>
+                           </choose>
+                       
+                       </otherwise>
+                   </choose>
+              
+              </otherwise>
+          </choose>
+      </where>
+  </select>
+  
+  
+  <insert id="add" parameterType="Blog">
+      <selectKey keyColumn="blog_id" keyProperty="blogID" resultType="int" order="BEFORE">
+          select seq_blog.nextval from dual
+      </selectKey>
+  
+      insert into blog(blog_id, blog_name, nick_name, photo, description, user_id)
+      values(#{blogID}, #{blogName}, #{nickName}, #{photo}, #{description}, #{userID })
+  </insert>
+   
+   
+</mapper>
