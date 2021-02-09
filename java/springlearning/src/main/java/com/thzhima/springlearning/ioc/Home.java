@@ -17,6 +17,20 @@ public class Home {
 		this.tv = tv;
 	}
 	
+	public Home() {
+		
+	}
+	
+	
+	
+	public TV getTv() {
+		return tv;
+	}
+
+	public void setTv(TV tv) {
+		this.tv = tv;
+	}
+
 	public void watchTV() {
 		System.out.println("打开电视");
 		this.tv.play();

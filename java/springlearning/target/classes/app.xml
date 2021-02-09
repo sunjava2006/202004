@@ -9,10 +9,52 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans
  http://www.springframework.org/schema/context/spring-context-3.2.xsd">
 
 
-   <bean name="tv" class="com.thzhima.springlearning.ioc.TV"/>
+   <bean name="tv" class="com.thzhima.springlearning.ioc.TV">
+       <property name="brand" value="mi4"></property>
+   </bean>
 
    <bean name="home" class="com.thzhima.springlearning.ioc.Home">
-       <constructor-arg index="0" ref="tv"></constructor-arg>
+       <!--        <constructor-arg index="0" ref="tv"></constructor-arg> -->
+        <property name="tv" >
+            <bean class="com.thzhima.springlearning.ioc.TV">
+                <property name="brand" value="Haier"></property>
+            </bean>
+        </property>
    </bean>
+   
+   <bean name="home2" class="com.thzhima.springlearning.ioc.Home2">
+        <lookup-method name="createTV" bean="tv"/>
+   </bean>
+   
+   <bean name="makeTV" class="com.thzhima.springlearning.ioc.MatkTV"></bean>
+   <bean name="home3" class="com.thzhima.springlearning.ioc.Home3">
+       <replaced-method name="makeTV" replacer="makeTV"></replaced-method>
+   </bean>
+   
+<!--    <bean name="carfactory" class="com.thzhima.springlearning.ioc.CarFactory" ></bean> -->
+<!--    <bean name="car" factory-bean="carfactory" factory-method="createCar"></bean> -->
+
+   <bean name="car2" class="com.thzhima.springlearning.ioc.Factory" factory-method="createCar"></bean> 
+
+<!-- =================================== -->
+   <bean name="library" class="com.thzhima.springlearning.ioc.Library" >
+       <property name="name">
+           <value>南京图书馆</value>
+       </property>
+       <property name="buildTime" value="2010"></property>
+       <property name="master">
+          <null></null>
+       </property>
+       <property name="bookNames">
+           <set>
+                <value>java</value>
+           		<value>python</value>
+           		<value>oracle</value>
+           </set>
+       </property>
+   </bean>
+   
+    <bean name="service" class="com.thzhima.springlearning.annotationioc.Service"
+          init-method="init" destroy-method="destroy"></bean>
 
 </beans>
