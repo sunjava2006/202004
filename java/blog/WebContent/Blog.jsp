@@ -9,6 +9,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+      @font-face {
+            font-family:mt;
+            src: url(./css/mzd.ttf);
+        }
         #page{
             width: 1191px;
             height: 1400px;
@@ -17,6 +21,11 @@
         #head{
             height: 138px;
             background-image: url(./img/banel_b.jpg);
+            font-family: mt;
+             font-size: 70px;
+            line-height: 138px;
+            color: aliceblue;
+            padding-left: 100px;
         }
         #menu_bar{
             height: 38px;
@@ -38,9 +47,11 @@
             justify-content:center;
         }
         iframe{
-            width: 991px;
+            width: 990px;
             height: 1224px;
             float: left;
+            border-right: solid gray 1px;
+           
         }
     </style>
 </head>
@@ -53,11 +64,7 @@
         <c:if test="${param.blogID==userInfo.blog.blogID}">
             <a href="/publish.html">发表文章</a>
         </c:if>
-        
-        
-        
-        
-        
+
            
         </div>
         <div id="main">
